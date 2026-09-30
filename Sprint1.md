@@ -56,3 +56,26 @@ La interfaz gráfica de PayClear ha sido conceptualizada bajo el principio de di
 * Garantizar contrastes de color adecuados para asegurar la legibilidad de la información contable.
 
 * Proporcionar respuestas visuales ante eventos del ratón (estados Hover, Focus y Pressed) en botones y tarjetas de usuario para dar confirmación táctil/visual de cada acción.
+
+## 3. Benchmarking.
+Para fundamentar las decisiones de diseño y arquitectura de PayClear, se ha realizado un estudio comparativo respecto a las tres soluciones más extendidas del mercado: Splitwise, Tricount y Settle Up.
+
+| Criterio de Evaluación      | Splitwise                                 | Tricount                             | Settle Up                         | PayClear (Nuestra Solución)        |
+| --------------------------- | ----------------------------------------- | ------------------------------------ | --------------------------------- | ---------------------------------- |
+| Paradigma de Almacenamiento | Nube (Cloud-First)                        | Nube (Cloud-First)                   | Nube / Híbrido                    | Local-First (100% Offline)         |
+| Registro y Privacidad       | Obligatorio (Email/Teléfono)              | Opcional / Enlace web                | Obligatorio (Cuenta Google/Email) | Sin registro ni datos personales   |
+| Modelo de Monetización      | Freemium (Límites diarios / Muro de pago) | Publicidad invasiva / Compras in-app | Publicidad / Suscripción Premium  | Totalmente Gratuito / Sin Anuncios |
+| Rendimiento sin Cobertura   | Muy Limitado / Inoperativo                | Lectura básica                       | Lectura básica                    | Operativo al 100%                  |
+| Complejidad de la Interfaz  | Alta (Múltiples pestañas y menús)         | Media (Listas desplegables)          | Media (Ajustes avanzados)         | Baja (Ventana Única Optimizada)    |
+| Algoritmo de Liquidación    | En servidor remoto (Caja negra)           | En servidor remoto                   | En servidor remoto                | Algoritmo Voraz Integrado en Local |
+
+### 3.2. Conclusiones y Factor Diferencial de PayClear.
+El análisis del mercado evidencia un nicho desatendido: usuarios que requieren calcular y simplificar deudas compartidas sin ceder su privacidad, sin soportar interrupciones publicitarias y sin depender de una conexión a internet activa.
+
+**Ventajas Competitivas de PayClear:**
+
+* Soberanía de Datos: Al funcionar de forma estrictamente local, elimina los riesgos de brechas de seguridad o venta de patrones de gasto a terceros.
+
+* Eficiencia Matemática en Cliente: Integra de forma nativa un Algoritmo Voraz (Greedy Algorithm) en el cliente que procesa en tiempo real la matriz de saldos y reduce las transferencias cruzadas al mínimo número de transacciones directas posibles (ej. resolviendo liquidaciones complejas en solo 2 o 3 pagos).
+
+* Cero Barreras de Entrada: Permite abrir la aplicación y registrar un gasto en segundos, convirtiéndose en una herramienta ideal para el entorno de escritorio y movilidad rápida.
