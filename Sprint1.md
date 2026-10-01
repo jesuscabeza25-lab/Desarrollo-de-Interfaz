@@ -147,3 +147,28 @@ Para la estructuración del software se ha adoptado el patrón MVP **en su varia
 
 * ** Modelo (`modelo/`):**
   Representa la capa de dominio (`Gasto`, `Participante`). Contiene el **Algoritmo Voraz** para la simplificación de deudas y gestiona la persistencia en el almacenamiento local del dispositivo (*Local-First*).
+
+---
+
+  ### 5.3. Componentes: características y campo de aplicación 
+
+* **Ventana principal (`JFrame`):** La pantalla base que contiene toda la app.
+* **Cajas de texto (`JTextField`):** Para escribir el concepto del gasto y el importe en euros. Usan `TextPrompt` para mostrar texto de ayuda (placeholder) que se borra al escribir.
+* **Desplegable (`JComboBox`):** Menú para elegir quién de los amigos pagó la cuenta.
+* **Botones (`JButton`):** Botón para registrar el gasto y botón para saldar las cuentas. En Figma tienen efectos al pasar el ratón por encima (hover) o pulsarlos.
+* **Cuadro de texto (`JTextArea` con scroll):** Muestra el reparto final optimizado ("a quién le tiene que pagar cada uno").
+* **Tarjeta de saldo (`TarjetaSaldoParticipante`):** Componente propio reutilizable que muestra el nombre del amigo y su saldo en color: verde si le deben dinero, rojo si debe, o gris si está a cero.
+
+---
+
+### 5.4. Asociación de acciones a eventos y edición del código generado 
+
+* **Interacción en Figma (Prototipo actual):**
+
+* **Cómo se conectarán los eventos en Java Swing:*
+  * La vista deja los botones privados y crea métodos get públicos (`getBtnRegistrar()`).
+  * El `ControladorPrincipal` implementa `ActionListener` y se encarga de escuchar los clics de los botones de forma separada: `vista.getBtnRegistrar().addActionListener(this)`.
+
+* **Código autogenerado:**
+  * NetBeans bloquea el código visual en la parte de `Generated Code`.
+  * Ese bloque no se toca para no romper el archivo `.form`.
