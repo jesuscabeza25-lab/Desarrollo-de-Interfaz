@@ -161,18 +161,37 @@ Para la estructuración del software se ha adoptado el patrón MVP **en su varia
 
 ---
 
-### 5.4. Asociación de acciones a eventos y edición del código generado 
+### 5.4. Asociación de acciones a eventos y edición del código generado
 
-* **Interacción en Figma (Prototipo actual):**
-* Pantallazo de inicio de sesión
-![Iniciar Sesion](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Iniciar%20sesion.png)
-* Pantallazo de Calculadora
-![Calculadora](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Calculadora.png)
-* Pantallazo de la gestion de gastos dividida en carpetas
-![Gestion de gastos](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/gestion%20de%20gastos%20dividido%20en%20carpetas.png)
-* Pantallazo de las deudas pendientes, en 0 o saldadas
-![Deudas pendientes y saldadas](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/pantalla%20de%20deudas%20pendientes%20y%20saldadas.png)
+#### 1. Interacción en Figma (Prototipo actual)
 
+* **Inicio de Sesión:**
+  Pantalla de acceso donde el usuario introduce sus credenciales o accede directamente al grupo de trabajo local.
+  
+  ![Iniciar Sesión](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Iniciar%20sesion.png?raw=true)
+
+---
+
+* **Calculadora / Diálogo Modal de Reparto Rápido:**
+  Ventana emergente diseñada para introducir tickets y repartir los importes de forma ágil entre los miembros seleccionados.
+  
+  ![Calculadora](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Calculadora.png?raw=true)
+
+---
+
+* **Gestión de Gastos Organizada por Carpetas:**
+  Vista principal de navegación que clasifica los registros de compras según viajes, categorías o eventos del grupo.
+  
+  ![Gestión de gastos](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/gestion%20de%20gastos%20dividido%20en%20carpetas.png?raw=true)
+
+---
+
+* **Estado de Deudas (Pendientes, Equilibradas y Saldadas):**
+  Panel de control de saldos que utiliza colores para mostrar la situación de cada participante (verde si le deben, rojo si debe y gris a cero).
+  
+  ![Deudas pendientes y saldadas](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/pantalla%20de%20deudas%20pendientes%20y%20saldadas.png?raw=true)
+
+---
 * **Cómo se conectarán los eventos en Java Swing:*
   * La vista deja los botones privados y crea métodos get públicos (`getBtnRegistrar()`).
   * El `ControladorPrincipal` implementa `ActionListener` y se encarga de escuchar los clics de los botones de forma separada: `vista.getBtnRegistrar().addActionListener(this)`.
