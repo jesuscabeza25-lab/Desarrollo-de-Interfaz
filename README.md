@@ -14,7 +14,7 @@ PayClear es una solucion orientada a simplificar la division de gastos grupales 
 
 * **Prototipo Interactivo en Figma:** [Acceso al prototipo navegable](https://www.figma.com/)
 * **Gestion del Proyecto:** [Tablero en GitHub Projects]([https://github.com/](https://github.com/users/jesuscabeza25-lab/projects/2))
-* **Memoria Tecnica Detallada:** Consultar [MEMORIA.md](MEMORIA.md) para la evaluacion formal de los criterios RA1 (arquitectura MVC, comparativa de librerias graficas, componente reutilizable y caso de prueba del algoritmo).
+* **Memoria Tecnica Detallada:** Consultar [SPRINT-1.md](Sprint 1.md) para la evaluacion formal de los criterios RA1 (arquitectura MVC, comparativa de librerias graficas, componente reutilizable y caso de prueba del algoritmo).
 
 ---
 
