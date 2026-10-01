@@ -194,3 +194,22 @@ Para la estructuración del software se ha adoptado el patrón MVP en su variant
 * **Código autogenerado:**
   * NetBeans bloquea el código visual en la parte de `Generated Code`.
   * Ese bloque no se toca para no romper el archivo `.form`.
+
+## 8. Descripción de Librerías de Componentes Nativas y Multiplataforma y sus Características
+
+### 8.1. Componentes Pesados frente a Ligeros
+* **Componentes Pesados (Nativos):** Son gestionados y dibujados directamente por el sistema operativo mediante su API nativa (GDI, Cocoa, X11). Garantizan integración estética con el entorno, pero sufren de rigidez gráfica e inconsistencias entre plataformas.
+* **Componentes Ligeros (Multiplataforma):** Son renderizados directamente por la máquina virtual o el motor gráfico de la aplicación. Permiten control total del ciclo de pintura, soporte de transparencias y consistencia multiplataforma.
+
+### 8.2. Matriz Comparativa de Tecnologías
+
+| Tecnología | Naturaleza | Motor de Renderizado | Plataformas | Decisión en PayClear |
+| :--- | :--- | :--- | :--- | :--- |
+| **Java AWT** | Pesada (Nativa) | API del SO | Escritorio | **Descartada:** Apariencia obsoleta y rigidez para componentes propios. |
+| **Java Swing** | Ligera (JVM) | Java 2D | Escritorio | **Seleccionada (Escritorio):** Soporte nativo de JavaBeans, editor Matisse. |
+| **JavaFX** | Scene Graph | Prism (GPU) | Escritorio | **Descartada:** Módulos desacoplados del JDK que añaden complejidad innecesaria. |
+| **Flutter / Dart** | Reactiva en lienzo | Impeller / Skia (GPU) | Móvil, Escritorio y Web | **Seleccionada (Móvil):** Código unificado para el cliente móvil en el Proyecto Intermodular. |
+
+### 8.3. Justificación de la Elección
+1. **Java Swing para Desarrollo de Interfaces:** Permite implementar el componente modular `TarjetaSaldoParticipante` bajo el estándar JavaBean, facilitando la maquetación desacoplada en NetBeans Matisse.
+2. **Flutter para Proyecto Intermodular:** Garantiza la migración progresiva hacia entornos móviles en fases posteriores mediante una arquitectura reactiva y renderizado acelerado por GPU.
