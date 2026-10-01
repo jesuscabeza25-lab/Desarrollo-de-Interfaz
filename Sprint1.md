@@ -81,15 +81,13 @@ El análisis del mercado evidencia un nicho desatendido: usuarios que requieren 
 ## 4. Product Backlog y Sprint Backlog
 
 ### 4.1. Product Backlog (Funcionalidades generales de la aplicación)
-Lista inicial de requisitos e historias de usuario identificadas para el producto completo[cite: 8]:
+Lista inicial de requisitos e historias de usuario identificadas para el producto completo:
 
-* **RE-01:** Como usuario, quiero registrar gastos indicando concepto, importe y pagador para llevar el control del grupo[cite: 14].
+* **RE-01:** Como usuario, quiero registrar gastos indicando concepto, importe y pagador para llevar el control del grupo.
 * **RE-02:** Como usuario, quiero ver el saldo acumulado de cada miembro del grupo con colores claros (verde si le deben, rojo si debe).
 * **RE-03:** Como usuario, quiero pulsar un botón de cálculo que simplifique las deudas para hacer el menor número posible de transferencias.
-* **RE-04:** Como usuario, quiero que la interfaz me avise si meto datos incorrectos (letras en el dinero, campos vacíos) sin que la aplicación se cierre[cite: 14].
+* **RE-04:** Como usuario, quiero que la interfaz me avise si meto datos incorrectos (letras en el dinero, campos vacíos) sin que la aplicación se cierre.
 * **RE-05:** Como usuario, quiero poder añadir nuevos amigos al grupo de forma rápida.
 * **RE-06:** Como usuario, quiero poder exportar o guardar el resumen de cuentas para compartirlo con el resto del grupo.
-
-* Eficiencia Matemática en Cliente: Integra de forma nativa un Algoritmo Voraz (Greedy Algorithm) en el cliente que procesa en tiempo real la matriz de saldos y reduce las transferencias cruzadas al mínimo número de transacciones directas posibles (ej. resolviendo liquidaciones complejas en solo 2 o 3 pagos).
 
 * Cero Barreras de Entrada: Permite abrir la aplicación y registrar un gasto en segundos, convirtiéndose en una herramienta ideal para el entorno de escritorio y movilidad rápida.
