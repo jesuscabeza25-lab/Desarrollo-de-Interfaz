@@ -89,7 +89,7 @@ Lista inicial de requisitos e historias de usuario identificadas para el product
 * **RE-06:** Como usuario, quiero poder exportar o guardar el resumen de cuentas para compartirlo con el resto del grupo.
 
 * Cero Barreras de Entrada: Permite abrir la aplicación y registrar un gasto en segundos, convirtiéndose en una herramienta ideal para el entorno de escritorio y movilidad rápida.
-* 
+  
 ### 4.2. Sprint Backlog (Sprint 1 - DII)
 
 #### 4.2.1. Objetivo del Sprint (Sprint Goal)
@@ -192,7 +192,7 @@ Para la estructuración del software se ha adoptado el patrón MVP **en su varia
   ![Deudas pendientes y saldadas](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/pantalla%20de%20deudas%20pendientes%20y%20saldadas.png?raw=true)
 
 ---
-* **Cómo se conectarán los eventos en Java Swing:*
+* **Cómo se conectarán los eventos en Java Swing:**
   * La vista deja los botones privados y crea métodos get públicos (`getBtnRegistrar()`).
   * El `ControladorPrincipal` implementa `ActionListener` y se encarga de escuchar los clics de los botones de forma separada: `vista.getBtnRegistrar().addActionListener(this)`.
 
