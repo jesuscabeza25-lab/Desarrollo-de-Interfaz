@@ -164,6 +164,14 @@ Para la estructuración del software se ha adoptado el patrón MVP **en su varia
 ### 5.4. Asociación de acciones a eventos y edición del código generado 
 
 * **Interacción en Figma (Prototipo actual):**
+* Pantallazo de inicio de sesión
+![Iniciar Sesion]https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Iniciar%20sesion.png
+* Pantallazo de Calculadora
+![Calculadora]https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Calculadora.png
+* Pantallazo de la gestion de gastos dividida en carpetas
+![Gestion de gastos]https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/gestion%20de%20gastos%20dividido%20en%20carpetas.png
+* Pantallazo de las deudas pendientes, en 0 o saldadas
+![Deudas pendientes y saldadas]https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/pantalla%20de%20deudas%20pendientes%20y%20saldadas.png
 
 * **Cómo se conectarán los eventos en Java Swing:*
   * La vista deja los botones privados y crea métodos get públicos (`getBtnRegistrar()`).
