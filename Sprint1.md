@@ -89,3 +89,30 @@ Lista inicial de requisitos e historias de usuario identificadas para el product
 * **RE-06:** Como usuario, quiero poder exportar o guardar el resumen de cuentas para compartirlo con el resto del grupo.
 
 * Cero Barreras de Entrada: Permite abrir la aplicación y registrar un gasto en segundos, convirtiéndose en una herramienta ideal para el entorno de escritorio y movilidad rápida.
+* 
+### 4.2. Sprint Backlog (Sprint 1 - DII)
+
+#### 4.2.1. Objetivo del Sprint (Sprint Goal)
+Diseñar y validar un prototipo interactivo de alta fidelidad en Figma que simule operativamente la interfaz de escritorio de PayClear, definiendo los componentes visuales reutilizables, la arquitectura MVC y la documentación técnica requerida para los criterios del RA1[cite: 1].
+
+---
+
+#### 4.2.2. Tabla de Tareas del Sprint (Sprint Backlog)
+
+| ID | Tarea Técnica | Criterio RA1 / Entregable | Responsable | Estimación | 
+| :---: | :--- | :---: | :--- | :---: | 
+| #01 | Identificación del público objetivo y perfiles de usuario | Memoria / UX | Jesús | 2 SP | Done |
+| #02 | Objetivos principales de la interfaz gráfica | Memoria / UX | Jesús | 2 SP | Done |
+| #03 | Estudio de Benchmarking (Splitwise, Tricount, Settle Up) | RA1.a | Jesús y Guillermo | 3 SP | Done |
+| #04 | Definición y priorización del Product Backlog | Gestión Scrum | José Luis | 3 SP | Done |
+| #05 | Elaboración del Sprint Backlog y Definition of Done | Gestión Scrum | Guillermo | 2 SP | Done |
+| #06 | Patrón de arquitectura de la aplicación gráfica (MVC) | RA1.h | Guillermo | 4 SP | Done |
+| #07 | Descripción y comparativa técnica de librerías nativas y multiplataforma | RA1.a | Guillermo | 3 SP | Done |
+| #08 | Prototipo interactivo de la interfaz de la aplicación en Figma | RA1.b, RA1.c | José Luis | 8 SP | Done |
+| #09 | Componentes: características y campo de aplicación | RA1.d | José Luis | 5 SP | Done |
+| #10 | Asociación de acciones a eventos y edición del código generado | RA1.e, RA1.f, RA1.g | José Luis | 4 SP | Done |
+| #11 | Descripción de clases, propiedades y métodos | RA1.h | Guillermo | 4 SP | Done |
+
+* Carga total estimada y completada: 40 Story Points (SP).
+
+---
