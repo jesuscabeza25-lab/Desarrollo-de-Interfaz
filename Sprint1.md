@@ -78,8 +78,6 @@ El análisis del mercado evidencia un nicho desatendido: usuarios que requieren 
 
 ## 4. Product Backlog y Sprint Backlog
 
-## 4. Product Backlog y Sprint Backlog
-
 ### 4.1. Product Backlog (Funcionalidades generales de la aplicación)
 Lista inicial de requisitos e historias de usuario identificadas para el producto completo:
 
