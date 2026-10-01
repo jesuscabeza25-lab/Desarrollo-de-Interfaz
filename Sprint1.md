@@ -116,3 +116,34 @@ Diseñar y validar un prototipo interactivo de alta fidelidad en Figma que simul
 * Carga total estimada y completada: 40 Story Points (SP).
 
 ---
+
+## 5. Patrón de Arquitectura: MODELO-VISTA-PRESENTADOR 
+
+Para la estructuración del software se ha adoptado el patrón MVP **en su variante de **Vista Pasiva** (*Passive View*)**, adaptando el esquema clásico MVC a la tecnología **Java Swing**.
+
+> [!IMPORTANTE]
+> Esta arquitectura garantiza la separación estricta de responsabilidades entre la interfaz de usuario, la lógica de presentación y el dominio matemático de la aplicación.
+
+---
+![MVP](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/refs/heads/main/img/MVP.png)
+
+### 5.1. Justificación de la Elección Arquitectónica
+
+| Criterio de Diseño | Implementación en PayClear | Beneficio Clave |
+| :--- | :--- | :--- |
+| **1. Vista Pasiva** | Las clases `.java` asociadas a los formularios `.form` de NetBeans no contienen cálculos aritméticos ni gestión de estados. | Evita la acumulación de lógica de negocio en el código autogenerado por la herramienta de diseño visual. |
+| **2. Aislamiento del Algoritmo Voraz** | El cálculo de minimización de transferencias reside exclusivamente en clases de dominio dentro de `modelo/`. | Permite ejecutar y modificar la lógica de reparto sin afectar a la interfaz ni depender de componentes gráficos. |
+| **3. Testabilidad Automática** | La orquestación en `ControladorPrincipal` y la lógica en `modelo/` no dependen del ciclo de vida de Swing. | Facilita la ejecución de pruebas unitarias automáticas (**JUnit**) sobre los balances sin desplegar pantallas. |
+
+---
+
+### 5.2. Responsabilidad de los Componentes
+
+* ** Vista (`vista/` y `componente/`):**
+  Construye la UI (`VistaPrincipal`, `DialogoDivisionRapida`) y sus elementos personalizados (`TarjetaSaldoParticipante`). Delegación inmediata de eventos del usuario al controlador sin procesar información contable.
+
+* ** Presentador / Controlador (`controlador/`):**
+  Actúa como intermediario. Recibe la notificación de eventos (ej. *clic en "Añadir gasto"*), invoca la actualización en el modelo y fuerza la reagrupación o repintado de las tarjetas de saldo con los datos resultantes.
+
+* ** Modelo (`modelo/`):**
+  Representa la capa de dominio (`Gasto`, `Participante`). Contiene el **Algoritmo Voraz** para la simplificación de deudas y gestiona la persistencia en el almacenamiento local del dispositivo (*Local-First*).
