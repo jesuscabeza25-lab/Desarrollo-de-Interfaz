@@ -3,16 +3,16 @@
 ## 1. Identificación del Público Objetivo
 El público objetivo de PayClear se define por la necesidad recurrente de compartir gastos y liquidar deudas de manera ágil, transparente y con total privacidad. Se identifican dos perfiles demográficos e interaccionales clave:
 
-### 1.1. Perfiles de Usuario (User Personas)
+### 1.1. Perfiles de Usuario
 * **Perfil Primario:** Estudiantes y Jóvenes Profesionales en Pisos Compartidos
 
   * **Demografía:** Jóvenes de entre 18 y 30 años.
 
   * **Contexto:** Convivencia continua donde se generan microgastos diarios habituales (compra del supermercado, facturas de suministros, productos de limpieza).
 
-  * **Necesidades y Motiva:** Buscan una herramienta directa de uso cotidiano que no requiera crear cuentas colectivas ni invitar a miembros mediante correos electrónicos. Valoran la inmediatez y la visualización clara de "quién debe a quién".
+  * **Necesidades:** Buscan una herramienta directa de uso cotidiano que no requiera crear cuentas colectivas ni invitar a miembros mediante correos electrónicos. Valoran la inmediatez y la visualización clara de "quién debe a quién".
 
-  * **Puntos de Dolor (Pain Points):** Frustración ante las restricciones de uso diario impuestas por apps comerciales y el spam publicitario.
+  * **Puntos de Dolor:** Frustración ante las restricciones de uso diario impuestas por apps comerciales y el spam publicitario.
 
 * **Perfil Secundario:** Grupos de Viajeros y Colectivos/Asociaciones Juveniles
 
@@ -20,7 +20,7 @@ El público objetivo de PayClear se define por la necesidad recurrente de compar
 
   * **Contexto:** Entornos con conectividad a internet limitada o nula (viajes rurales, albergues, zonas de montaña, desplazamientos internacionales).
 
-  * **Necesidades y Motiva:** Necesitan un software Local-First que funcione 100% fuera de línea (offline) y un diálogo modal interactivo para reparto rápido de tickets compartidos (cenas, entradas, transportes).
+  * **Necesidades:** Necesitan un software Local-First que funcione 100% fuera de línea (offline) y un diálogo modal interactivo para reparto rápido de tickets compartidos (cenas, entradas, transportes).
 
   * **Puntos de Dolor (Pain Points):** Inoperatividad de las aplicaciones basadas en la nube cuando se pierde la cobertura de datos.
 
@@ -47,7 +47,7 @@ La interfaz gráfica de PayClear ha sido conceptualizada bajo el principio de di
 
 **3. Arquitectura Visual Desacoplada y Modular:**
 
-* Estructurar la vista principal de modo que integre en un único espacio de trabajo la tabla de registros históricos y el panel de balances individuales, manteniendo la interfaz independiente de la lógica matemática subyacente (patrón MVC).
+* Estructurar la vista principal de modo que integre en un único espacio de trabajo la tabla de registros históricos y el panel de balances individuales, manteniendo la interfaz independiente de la lógica matemática subyacente (patrón MVP).
 
 * Implementar un diálogo modal aislado (DialogoDivisionRapida / Calculadora Rápida) que flote sobre la pantalla principal (overlay) para efectuar repartos equitativos o asimétricos sin perder el contexto visual de la aplicación.
 
@@ -85,15 +85,13 @@ Lista inicial de requisitos e historias de usuario identificadas para el product
 * **RE-02:** Como usuario, quiero ver el saldo acumulado de cada miembro del grupo con colores claros (verde si le deben, rojo si debe).
 * **RE-03:** Como usuario, quiero pulsar un botón de cálculo que simplifique las deudas para hacer el menor número posible de transferencias.
 * **RE-04:** Como usuario, quiero que la interfaz me avise si meto datos incorrectos (letras en el dinero, campos vacíos) sin que la aplicación se cierre.
-* **RE-05:** Como usuario, quiero poder añadir nuevos amigos al grupo de forma rápida.
+* **RE-05:** Como usuario, quiero poder añadir nuevos amigos al grupo de forma rápida para incluirlos en el reparto de gastos inmediatamente.
 * **RE-06:** Como usuario, quiero poder exportar o guardar el resumen de cuentas para compartirlo con el resto del grupo.
-
-* Cero Barreras de Entrada: Permite abrir la aplicación y registrar un gasto en segundos, convirtiéndose en una herramienta ideal para el entorno de escritorio y movilidad rápida.
   
 ### 4.2. Sprint Backlog (Sprint 1 - DII)
 
 #### 4.2.1. Objetivo del Sprint (Sprint Goal)
-Diseñar y validar un prototipo interactivo de alta fidelidad en Figma que simule operativamente la interfaz de escritorio de PayClear, definiendo los componentes visuales reutilizables, la arquitectura MVC y la documentación técnica requerida para los criterios del RA1[cite: 1].
+Diseñar y validar un prototipo interactivo de alta fidelidad en Figma que simule operativamente la interfaz de escritorio de PayClear, definiendo los componentes visuales reutilizables, la arquitectura MVP y la documentación técnica requerida para los criterios del RA1[cite: 1].
 
 ---
 
@@ -103,10 +101,10 @@ Diseñar y validar un prototipo interactivo de alta fidelidad en Figma que simul
 | :---: | :--- | :---: | :--- | :---: | 
 | #01 | Identificación del público objetivo y perfiles de usuario | Memoria / UX | Jesús | 2 SP | Done |
 | #02 | Objetivos principales de la interfaz gráfica | Memoria / UX | Jesús | 2 SP | Done |
-| #03 | Estudio de Benchmarking (Splitwise, Tricount, Settle Up) | RA1.a | Jesús y Guillermo | 3 SP | Done |
+| #03 | Estudio de Benchmarking (Splitwise, Tricount, Settle Up) | RA1.a | Jesús | 3 SP | Done |
 | #04 | Definición y priorización del Product Backlog | Gestión Scrum | José Luis | 3 SP | Done |
 | #05 | Elaboración del Sprint Backlog y Definition of Done | Gestión Scrum | Guillermo | 2 SP | Done |
-| #06 | Patrón de arquitectura de la aplicación gráfica (MVC) | RA1.h | Guillermo | 4 SP | Done |
+| #06 | Patrón de arquitectura de la aplicación gráfica (MVP) | RA1.h | Guillermo | 4 SP | Done |
 | #07 | Descripción y comparativa técnica de librerías nativas y multiplataforma | RA1.a | Guillermo | 3 SP | Done |
 | #08 | Prototipo interactivo de la interfaz de la aplicación en Figma | RA1.b, RA1.c | José Luis | 8 SP | Done |
 | #09 | Componentes: características y campo de aplicación | RA1.d | José Luis | 5 SP | Done |
@@ -119,10 +117,7 @@ Diseñar y validar un prototipo interactivo de alta fidelidad en Figma que simul
 
 ## 5. Patrón de Arquitectura: MODELO-VISTA-PRESENTADOR 
 
-Para la estructuración del software se ha adoptado el patrón MVP **en su variante de **Vista Pasiva** (*Passive View*)**, adaptando el esquema clásico MVC a la tecnología **Java Swing**.
-
-> [!IMPORTANTE]
-> Esta arquitectura garantiza la separación estricta de responsabilidades entre la interfaz de usuario, la lógica de presentación y el dominio matemático de la aplicación.
+Para la estructuración del software se ha adoptado el patrón MVP en su variante de **Vista Pasiva (*Passive View*)**, adaptando el esquema clásico MVC a la tecnología **Java Swing**.
 
 ---
 ![MVP](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/refs/heads/main/img/MVP.png)
@@ -150,7 +145,7 @@ Para la estructuración del software se ha adoptado el patrón MVP **en su varia
 
 ---
 
-  ### 5.3. Componentes: características y campo de aplicación 
+## 6. Componentes: características y campo de aplicación 
 
 * **Ventana principal (`JFrame`):** La pantalla base que contiene toda la app.
 * **Cajas de texto (`JTextField`):** Para escribir el concepto del gasto y el importe en euros. Usan `TextPrompt` para mostrar texto de ayuda (placeholder) que se borra al escribir.
@@ -161,7 +156,7 @@ Para la estructuración del software se ha adoptado el patrón MVP **en su varia
 
 ---
 
-### 5.4. Asociación de acciones a eventos y edición del código generado
+## 7. Asociación de acciones a eventos y edición del código generado
 
 #### 1. Interacción en Figma (Prototipo actual)
 
