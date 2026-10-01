@@ -213,3 +213,43 @@ Para la estructuración del software se ha adoptado el patrón MVP en su variant
 ### 8.3. Justificación de la Elección
 1. **Java Swing para Desarrollo de Interfaces:** Permite implementar el componente modular `TarjetaSaldoParticipante` bajo el estándar JavaBean, facilitando la maquetación desacoplada en NetBeans Matisse.
 2. **Flutter para Proyecto Intermodular:** Garantiza la migración progresiva hacia entornos móviles en fases posteriores mediante una arquitectura reactiva y renderizado acelerado por GPU.
+
+
+## 9. Descripción de Clases, Propiedades y Métodos
+
+Diseño inicial del Sprint 1 siguiendo el patrón MVP. Las clases y métodos se refinarán en los siguientes sprints.
+
+### 9.1. Modelo (`com.payclear.modelo`)
+
+| Clase | Responsabilidad | Propiedades | Métodos clave |
+|---|---|---|---|
+| `Participante` | Miembro del grupo y su saldo | `id`, `nombre`, `saldo` | `getNombre()`, `getSaldo()`, `modificarSaldo(double)` |
+| `Gasto` | Movimiento económico del grupo | `concepto`, `importeTotal`, `pagador`, `asignaciones`, `fecha` | `agregarConsumo(Participante, double)`, `dividirEquitativamente(List<Participante>)` |
+| `Transferencia` | Pago directo propuesto por el algoritmo | `deudor`, `acreedor`, `importe` | getters |
+| `AlgoritmoLiquidacion` | Simplifica deudas con un algoritmo voraz (*greedy*) | (sin estado) | `calcularTransferencias(List<Participante>)` |
+
+El algoritmo empareja al mayor deudor con el mayor acreedor de forma iterativa. No garantiza el mínimo absoluto de transferencias, pero salda las cuentas en como máximo *n − 1* pagos.
+
+### 9.2. Componente personalizado (`com.payclear.componente`)
+
+| Clase | Responsabilidad | Propiedades | Métodos clave |
+|---|---|---|---|
+| `TarjetaSaldoParticipante` (JavaBean, extiende `JPanel`) | Muestra nombre y saldo con color según su estado | `nombreParticipante`, `saldoActual` | `setNombreParticipante(String)`, `setSaldoActual(double)` |
+
+Estados visuales: verde (`#11734F`) si el saldo es positivo, rojo (`#B53C3C`) si es negativo y gris (`#59665E`) si es cero.
+
+### 9.3. Vista (`com.payclear.vista`)
+
+Las vistas no contienen lógica de negocio: solo exponen sus controles y muestran los datos que recibe del controlador.
+
+| Clase | Tipo | Componentes principales | Métodos clave |
+|---|---|---|---|
+| `VistaPrincipal` | `JFrame` | panel de tarjetas, `JTable` de historial, `btnNuevoGasto`, `btnLiquidar` | `getBtnNuevoGasto()`, `getBtnLiquidar()`, `mostrarSaldos(...)`, `mostrarHistorial(...)` |
+| `DialogoGasto` | `JDialog` | `txtConcepto`, `txtImporte`, `cmbPagador`, filas de reparto, `btnGuardar`, `btnCancelar` | `getConcepto()`, `getImporte()`, `getBtnGuardar()` |
+| `DialogoLiquidacion` | `JDialog` | `JList` de transferencias, `btnConfirmar` | `mostrarPlan(List<String>)`, `getBtnConfirmar()` |
+
+### 9.4. Controlador (`com.payclear.controlador`)
+
+| Clase | Responsabilidad | Propiedades | Métodos clave |
+|---|---|---|---|
+| `ControladorPrincipal` (implementa `ActionListener`) | Conecta vistas y modelo, y gestiona los eventos de los botones | `vista`, `listaParticipantes`, `listaGastos` | `actionPerformed(ActionEvent)`, `registrarGasto()`, `gestionarLiquidacion()` |
