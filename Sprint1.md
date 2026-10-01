@@ -158,43 +158,58 @@ Para la estructuración del software se ha adoptado el patrón MVP en su variant
 
 ## 7. Asociación de acciones a eventos y edición del código generado
 
-#### 1. Interacción en Figma (Prototipo actual)
+### 7.1. Interacción en Figma (Prototipo actual)
 
-* **Inicio de Sesión:**
-  Pantalla de acceso donde el usuario introduce sus credenciales o accede directamente al grupo de trabajo local.
+* **Acceso al Grupo Local:**
+  Pantalla inicial para seleccionar o abrir el espacio de trabajo local del grupo sin necesidad de registro ni credenciales en la nube.
   
-  ![Iniciar Sesión](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Iniciar%20sesion.png?raw=true)
+  ![Acceso al grupo](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Iniciar%20sesion.png?raw=true)
 
 ---
 
 * **Calculadora / Diálogo Modal de Reparto Rápido:**
-  Ventana emergente diseñada para introducir tickets y repartir los importes de forma ágil entre los miembros seleccionados.
+  Ventana emergente interactiva para registrar tickets y repartir los importes de forma ágil entre los miembros del grupo.
   
   ![Calculadora](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/Calculadora.png?raw=true)
 
 ---
 
-* **Gestión de Gastos Organizada por Carpetas:**
-  Vista principal de navegación que clasifica los registros de compras según viajes, categorías o eventos del grupo.
+* **Gestión de Gastos (Vista Principal e Idea Futura de Carpetas):**
+  Espacio central con el listado de gastos registrados. La división visual por categorías o carpetas (ej. viajes o eventos) se plantea en el prototipo como una mejora futura a incorporar en posteriores sprints del proyecto.
   
   ![Gestión de gastos](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/gestion%20de%20gastos%20dividido%20en%20carpetas.png?raw=true)
 
 ---
 
 * **Estado de Deudas (Pendientes, Equilibradas y Saldadas):**
-  Panel de control de saldos que utiliza colores para mostrar la situación de cada participante (verde si le deben, rojo si debe y gris a cero).
+  Panel de control de saldos que utiliza código de colores para mostrar el balance de cada participante (verde si tiene saldo a favor, rojo si debe dinero y gris si está saldado a 0,00 €).
   
   ![Deudas pendientes y saldadas](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/blob/main/img/pantalla%20de%20deudas%20pendientes%20y%20saldadas.png?raw=true)
 
 ---
-* **Cómo se conectarán los eventos en Java Swing:**
-  * La vista deja los botones privados y crea métodos get públicos (`getBtnRegistrar()`).
-  * El `ControladorPrincipal` implementa `ActionListener` y se encarga de escuchar los clics de los botones de forma separada: `vista.getBtnRegistrar().addActionListener(this)`.
 
-* **Código autogenerado:**
-  * NetBeans bloquea el código visual en la parte de `Generated Code`.
-  * Ese bloque no se toca para no romper el archivo `.form`.
+### 7.2. Matriz de Eventos y Acciones
 
+En la siguiente tabla se especifica la relación entre los componentes de la interfaz, los eventos disparados por el usuario y la acción asociada tanto en el prototipo interactivo de Figma como en la futura implementación:
+
+| Componente | Evento / Disparador | Acción Asociada |
+| :--- | :--- | :--- |
+| `btnNuevoGasto` | Clic / Tap | Abre el diálogo modal `DialogoGasto` (Calculadora rápida). |
+| `btnGuardar` (en modal) | Clic / Tap | Valida los campos, registra el nuevo gasto y actualiza la lista. |
+| `btnSaldarCuentas` | Clic / Tap | Ejecuta el algoritmo de reparto y muestra el resumen de transferencias. |
+| `btnNuevoGasto` / `btnGuardar` | While Hovering / Pressed | Retroalimentación visual interactiva en Figma (cambio sutil de tono/elevación). |
+| `TarjetaSaldoParticipante` | Clic | Filtra el historial para mostrar únicamente los gastos del miembro seleccionado. |
+
+---
+
+### 7.3. Planificación de Conexión de Eventos en Java Swing
+
+Para la fase de desarrollo en código, se seguirá el patrón arquitectónico desacoplado MVP (Passive View):
+* **Encapsulación en la Vista:** La vista mantendrá sus controles como variables privadas y expondrá métodos de acceso públicos, tales como `getBtnNuevoGasto()` o `getBtnGuardar()`.
+* **Suscripción Externa:** El controlador (`ControladorPrincipal`) implementará la interfaz `ActionListener` y se vinculará a los componentes sin ensuciar la vista:
+  ```java
+  vista.getBtnNuevoGasto().addActionListener(this);
+  
 ## 8. Descripción de Librerías de Componentes Nativas y Multiplataforma y sus Características
 
 ### 8.1. Componentes Pesados frente a Ligeros
