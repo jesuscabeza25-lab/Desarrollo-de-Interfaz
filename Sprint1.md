@@ -1,3 +1,14 @@
+# PayClear — Documentación Técnica
+
+* **Módulo:** Desarrollo de Interfaces (DII) 
+* **Equipo:** Jesús, José Luis, Guillermo
+* **Fecha de entrega Sprint 1:** 02/10/2026
+
+| Recurso | Enlace |
+| :--- | :--- |
+| Prototipo en Figma | [`FIGMA`](https://www.figma.com/make/tw427B0LEsxsFf9xkGl7hG/Maquetacion-Vista-Principal-PI?t=mur4tBSgpFSJc3Sn-1) |
+| Repositorio GitHub DI | [`Repositorio DI`](https://github.com/jesuscabeza25-lab/Desarrollo-de-Interfaz) |
+
 # **Documentación Técnica**
 
 ## 1. Identificación del Público Objetivo
@@ -124,35 +135,35 @@ Para la estructuración del software se ha adoptado el patrón MVP en su variant
 
 ### 5.1. Justificación de la Elección Arquitectónica
 
-| Criterio de Diseño | Implementación en PayClear | Beneficio Clave |
+| Criterio | Aplicación en PayClear | Beneficio |
 | :--- | :--- | :--- |
-| **1. Vista Pasiva** | Las clases `.java` asociadas a los formularios `.form` de NetBeans no contienen cálculos aritméticos ni gestión de estados. | Evita la acumulación de lógica de negocio en el código autogenerado por la herramienta de diseño visual. |
-| **2. Aislamiento del Algoritmo Voraz** | El cálculo de minimización de transferencias reside exclusivamente en clases de dominio dentro de `modelo/`. | Permite ejecutar y modificar la lógica de reparto sin afectar a la interfaz ni depender de componentes gráficos. |
-| **3. Testabilidad Automática** | La orquestación en `ControladorPrincipal` y la lógica en `modelo/` no dependen del ciclo de vida de Swing. | Facilita la ejecución de pruebas unitarias automáticas (**JUnit**) sobre los balances sin desplegar pantallas. |
+| **Vista Pasiva** | Las vistas no contienen cálculos ni gestión de estado; solo muestran lo que el controlador les entrega. | Evita mezclar lógica de negocio con el código generado por la herramienta visual. |
+| **Aislamiento del algoritmo voraz** | El cálculo de transferencias reside en `modelo/`. | Se puede modificar la lógica sin tocar la interfaz. |
+| **Testabilidad** | Controlador y modelo no dependen del ciclo de vida de Swing. | Permite pruebas unitarias (JUnit) sobre los balances sin abrir pantallas. |
 
 ---
 
 ### 5.2. Responsabilidad de los Componentes
 
-* ** Vista (`vista/` y `componente/`):**
-  Construye la UI (`VistaPrincipal`, `DialogoDivisionRapida`) y sus elementos personalizados (`TarjetaSaldoParticipante`). Delegación inmediata de eventos del usuario al controlador sin procesar información contable.
-
-* ** Presentador / Controlador (`controlador/`):**
-  Actúa como intermediario. Recibe la notificación de eventos (ej. *clic en "Añadir gasto"*), invoca la actualización en el modelo y fuerza la reagrupación o repintado de las tarjetas de saldo con los datos resultantes.
-
-* ** Modelo (`modelo/`):**
-  Representa la capa de dominio (`Gasto`, `Participante`). Contiene el **Algoritmo Voraz** para la simplificación de deudas y gestiona la persistencia en el almacenamiento local del dispositivo (*Local-First*).
+* **Vista (`vista/` y `componente/`):** construye la interfaz (`VistaPrincipal`, `DialogoGasto`, `DialogoLiquidacion`) y el componente `TarjetaSaldoParticipante`. Delega los eventos al controlador sin procesar información contable.
+* **Presentador / Controlador (`controlador/`):** intermediario. Recibe eventos (p. ej. clic en "Nuevo gasto"), actualiza el modelo y ordena a la vista repintar tarjetas e historial.
+* **Modelo (`modelo/`):** capa de dominio (`Participante`, `Gasto`, `Transferencia`, `AlgoritmoLiquidacion`). La persistencia local queda prevista para el Sprint 2.
 
 ---
 
 ## 6. Componentes: características y campo de aplicación 
 
-* **Ventana principal (`JFrame`):** La pantalla base que contiene toda la app.
-* **Cajas de texto (`JTextField`):** Para escribir el concepto del gasto y el importe en euros. Usan `TextPrompt` para mostrar texto de ayuda (placeholder) que se borra al escribir.
-* **Desplegable (`JComboBox`):** Menú para elegir quién de los amigos pagó la cuenta.
-* **Botones (`JButton`):** Botón para registrar el gasto y botón para saldar las cuentas. En Figma tienen efectos al pasar el ratón por encima (hover) o pulsarlos.
-* **Cuadro de texto (`JTextArea` con scroll):** Muestra el reparto final optimizado ("a quién le tiene que pagar cada uno").
-* **Tarjeta de saldo (`TarjetaSaldoParticipante`):** Componente propio reutilizable que muestra el nombre del amigo y su saldo en color: verde si le deben dinero, rojo si debe, o gris si está a cero.
+| Componente | Clase Swing | Uso en PayClear | Propiedades principales (definidas en Figma) |
+| :--- | :--- | :--- | :--- |
+| Ventana principal | `JFrame` | Contiene toda la aplicación | Tamaño, título, color de fondo |
+| Diálogos | `JDialog` | `DialogoGasto` y `DialogoLiquidacion`, superpuestos a la ventana principal | Modal, centrado, fondo |
+| Cajas de texto | `JTextField` | Concepto e importe del gasto | Texto de ayuda (*placeholder*), fuente, borde |
+| Desplegable | `JComboBox` | Elegir quién pagó | Lista de participantes |
+| Selector de modo | `JRadioButton` | Reparto equitativo o manual | Texto, grupo de selección |
+| Botones | `JButton` | Registrar gasto, liquidar, guardar, cancelar | Texto, color, estados hover/pressed |
+| Tabla | `JTable` | Historial de gastos | Columnas: fecha, concepto, pagador, importe |
+| Lista | `JList` | Plan de liquidación ("A paga X € a B") | Fuente, selección |
+| Tarjeta de saldo | `TarjetaSaldoParticipante` (JavaBean propio, `JPanel`) | Nombre y saldo con color según estado | `nombreParticipante`, `saldoActual` |
 
 ---
 
@@ -209,7 +220,7 @@ Para la fase de desarrollo en código, se seguirá el patrón arquitectónico de
 * **Suscripción Externa:** El controlador (`ControladorPrincipal`) implementará la interfaz `ActionListener` y se vinculará a los componentes sin ensuciar la vista:
   ```java
   vista.getBtnNuevoGasto().addActionListener(this);
-  
+
 ## 8. Descripción de Librerías de Componentes Nativas y Multiplataforma y sus Características
 
 ### 8.1. Componentes Pesados frente a Ligeros
