@@ -12,7 +12,7 @@ PayClear es una solucion orientada a simplificar la division de gastos grupales 
 
 ## 2. Entregables del Sprint 1
 
-* **Prototipo Interactivo en Figma:** [Acceso al prototipo navegable](https://www.figma.com/)
+* **Prototipo Interactivo en Figma:** [Acceso al prototipo navegable](https://www.figma.com/make/tw427B0LEsxsFf9xkGl7hG/Maquetacion-Vista-Principal-PI?t=nwGOOxNGUa5cHgF6-1)
 * **Gestion del Proyecto:** [Tablero en GitHub Projects](https://github.com/users/jesuscabeza25-lab/projects/2/views/1)
 * **Memoria Tecnica Detallada:** Consultar [SPRINT1.md](Sprint1.md) para la evaluacion formal de los criterios RA1 (arquitectura MVC, comparativa de librerias graficas, componente reutilizable y caso de prueba del algoritmo).
 
