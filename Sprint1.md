@@ -1,6 +1,6 @@
 # PayClear — Documentación Técnica
 
-* **Módulo:** Desarrollo de Interfaces (DII) / Proyecto Intermodular (PI)
+* **Módulo:** Desarrollo de Interfaces (DII)
 * **Equipo:** Jesús, José Luis, Guillermo
 * **Fecha de entrega Sprint 1:** 02/10/2026
 
