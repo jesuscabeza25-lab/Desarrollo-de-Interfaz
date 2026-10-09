@@ -27,7 +27,7 @@ PayClear es una solucion orientada a simplificar la division de gastos grupales 
 
 ---
 
-## 4. Estructura Proyectada de Paquetes (MVP)
+## 4. Estructura Proyectada de Paquetes (MVC)
 
 ```text
 src/main/java/com/payclear/
