@@ -1,35 +1,34 @@
 
-## 2.1. Usabilidad y accesibilidad: características, pautas y estándares
+### **2.1. Usabilidad y accesibilidad: características, pautas y estándares**
 
-#### 2.1.1. Atributos de usabilidad y métricas de evaluación (ISO/IEC 25010)
-* **Efectividad:** Tasa de éxito del 100% al registrar gastos y calcular saldos locales en JSON. Garantiza que el algoritmo voraz ($N-1$) reduzca las deudas al mínimo de transferencias sin errores contables.
-* **Eficiencia:** Registro de un gasto en menos de 10 segundos y en un máximo de 3 pasos, aprovechando la interfaz de ventana única en Java Swing y la modal de reparto rápido.
-* **Satisfacción del usuario:** Meta de puntuación > 80/100 en la escala SUS (System Usability Scale), lograda al eliminar formularios de registro, anuncios y muros de pago (paywalls).
+#### **2.1.1. Atributos de usabilidad y formas de medirlo (Norma ISO/IEC 25010)**
 
----
+-   **Efectividad:** El programa garantiza que los gastos se guarden correctamente y que las cuentas cuadren al 100%. Además, la forma en que calcula las deudas asegura que los compañeros se hagan el menor número posible de pagos entre sí, evitando errores de cálculo.
+-   **Eficiencia:** Cualquier usuario puede registrar un gasto en menos de 10 segundos y en solo 3 pasos. Esto se consigue porque toda la aplicación está en una sola pantalla principal y las pantallas emergentes para repartir tickets son muy sencillas.
+-   **Satisfacción del usuario:** Buscamos una nota alta (más de 80 puntos sobre 100 en la encuesta de satisfacción estándar SUS). Esto se logra porque la aplicación no exige registrarse con correo electrónico, no tiene anuncios molestos ni pide pagos para usar sus funciones.
 
-#### 2.1.2. Principios heurísticos de Nielsen aplicados
-1. **Visibilidad del estado del sistema:** El componente TarjetaSaldoParticipante refresca los saldos en tiempo real tras cada operación sin recargas manuales.
-2. **Consistencia y estándares:** Uso de patrones de diseño reconocidos y la librería FlatLaf en Java Swing para asegurar una estética uniforme en Windows, Linux y macOS.
-3. **Prevención de errores:** Validación en tiempo real; los botones de guardado permanecen deshabilitados si el importe es nulo, no numérico o si el reparto de tickets no coincide con el total.
-4. **Flexibilidad de uso:** Flujo por teclado mediante tabulación para el perfil gestor y modales táctiles simples para el usuario ocasional.
+#### **2.1.2. Principios de diseño intuitivo (Heurísticas de Nielsen)**
 
----
+1.  **Saber siempre qué está pasando:** En cuanto añades o borras un gasto, la pantalla actualiza los saldos de cada persona al instante y de forma automática, sin que tengas que darle a ningún botón de refrescar.
+2.  **Estilo claro y conocido:** La aplicación se ve y funciona exactamente igual si la usas en un ordenador con Windows, Mac o Linux (gracias a la plantilla visual FlatLaf), utilizando botones e iconos sencillos que todo el mundo reconoce.
+3.  **Evitar errores antes de que ocurran:** Si se te olvida poner cuánto ha costado la compra o intentas escribir letras en lugar de números, el botón de "Guardar" se queda deshabilitado para que no puedas cometer un fallo por despiste.
+4.  **Fácil para todo tipo de usuarios:** Si prefieres usar el ordenador rápido, puedes hacer todo solo con la tecla Tabulador sin tocar el ratón. Si usas la pantalla táctil de un móvil, dispones de botones grandes y sencillos.
 
-#### 2.1.3. Marco normativo de accesibilidad universal
-El diseño cumple con los requisitos legales de la Norma UNE-EN 301 549:2022 y las WCAG 2.1 (Nivel AA) del W3C:
-* **Ratio de contraste de color (WCAG 1.4.3):** Mínimo de 4.5:1 en texto estándar y 3:1 en componentes e iconos esenciales.
-* **Navegabilidad por teclado (WCAG 2.1.1 e indicador 2.4.7):** Operatividad 100% sin ratón (Tab / Enter) con indicador visual de foco (*focus ring*) siempre activo.
-* **Compatibilidad con tecnologías de apoyo (WCAG 4.1.2):** Mapeo de componentes mediante AccessibleContext en Java Swing y Semantics en Flutter para lectores de pantalla (NVDA, TalkBack).
+#### **2.1.3. Reglas de accesibilidad (Pensado para que lo use cualquier persona)**
 
----
+La aplicación cumple con las normas oficiales de accesibilidad para programas informáticos (UNE-EN 301 549 y WCAG 2.1 Nivel AA):
 
-#### 2.1.4. Aplicación práctica: Librería FlatLaf y paleta de colores
-* **Librería FlatLaf (Java Swing):** Aporta de forma nativa el *Focus Ring* de alto contraste durante la tabulación por teclado, soporte para reescalado HiDPI y navegación completa sin ratón.
-* **Paleta corporativa y doble codificación (WCAG 1.4.1):** Las tarjetas de saldo combinan color, texto explícito e iconografía para no depender exclusivamente de la percepción cromática (apto para personas con daltonismo):
-  * **Acreedor (Verde #1B5E20):** Ratio 9.2:1 + Texto *"Le deben X €"* + Icono (+).
-  * **Deudor (Rojo #B71C1C):** Ratio 8.5:1 + Texto *"Debe X €"* + Icono (-).
-  * **Saldado (Gris #424242):** Ratio 10.1:1 + Texto *"Saldado"* + Icono (✓).   
+-   **Colores fáciles de leer:** El texto y las letras destacan mucho sobre el fondo. Cumplimos con los niveles de contraste exigidos para que a nadie le cueste leer la información, incluso si tiene problemas de vista.
+-   **Uso completo sin ratón:** Puedes controlar el 100% de la aplicación usando solo las teclas del ordenador (Tab para moverte y Enter para pulsar). Además, la casilla o botón donde estás situado se marca con un borde de color muy claro (*recuadro de foco*) para que nunca te pierdas.
+-   **Pensado para lectores de pantalla**: La aplicación está adaptada para que las personas con discapacidad visual que usan lectores de voz (como NVDA en el ordenador o TalkBack en el móvil) puedan escuchar sin problemas qué hace cada casilla o botón.
+
+#### **2.1.4. Aplicación práctica en PayClear: Diseño visual y tarjetas de colores**
+
+-   **Aspecto moderno y adaptado (Librería FlatLaf):** Es la plantilla gráfica que usa el programa para que los botones y tablas se vean modernos, se adapten al tamaño de cualquier pantalla y marquen de forma clara el cursor al navegar con el teclado.
+-   **Tarjetas de saldo fáciles de entender (Apto para personas daltónicas):** Para saber si debes o te deben dinero, la aplicación no usa solo el color, sino que combina color de alto contraste + texto claro + icono visual:
+-   -   **Verde (Te deben dinero):** Fondo verde oscuro con letra blanca + Texto *"Le deben X €"* + Icono de sumar (+).
+    -   **Rojo (Debes dinero):** Fondo rojo oscuro con letra blanca + Texto *"Debe X €"* + Icono de restar (-).
+    -   **Gris (Cuentas al día):** Fondo gris oscuro con letra blanca + Texto *"Saldado"* + Icono de visto (✓).  
 
 #### Fuentes y referencias normativas
 Norma UNE-EN 301 549:2022 (AENOR): [Requisitos de accesibilidad para productos y servicios TIC](https://www.google.com/search?q=https://www.en-301-549.info/)
