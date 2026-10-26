@@ -31,7 +31,6 @@ La aplicación cumple con las normas oficiales de accesibilidad para programas i
     -   **Gris (Cuentas al día):** Fondo gris oscuro con letra blanca + Texto *"Saldado"* + Icono de visto (✓).  
 
 #### Fuentes y referencias normativas
-Norma UNE-EN 301 549:2022 (AENOR): [Requisitos de accesibilidad para productos y servicios TIC](https://www.google.com/search?q=https://www.en-301-549.info/)
 
 BOE (Boletín Oficial del Estado): [Real Decreto 405/2023 (Actualización títulos FP - Resultado de Aprendizaje 2)](https://www.boe.es/eli/es/rd/2023/05/29/405)
 
