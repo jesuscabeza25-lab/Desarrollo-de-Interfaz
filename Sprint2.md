@@ -32,9 +32,11 @@ La aplicación cumple con las normas oficiales de accesibilidad para programas i
 
 #### Fuentes y referencias normativas
 
-BOE (Boletín Oficial del Estado): [Real Decreto 405/2023 (Actualización títulos FP - Resultado de Aprendizaje 2)](https://www.boe.es/eli/es/rd/2023/05/29/405)
+**Accesibilidad Universal:** https://www.fundacionmdp.org/que-es-la-accesibilidad-universal/?gad\_source=1&gad\_campaignid=11414872512&gbraid=0AAAAACKtZL7u0IrytwlBJBalbZp5YXCNX&gclid=CjwKCAjwuobXBhBXEiwAYUaIlRBEWFZehm1t-2s5gvVYqseyS2xpmmzDNO0d3bmfGk5MpjtORRqT7xoCob0QAvD\_BwE
 
-Agencia Española de Protección de Datos (AEPD): [Guía de Privacidad desde el Diseño][(https://www.google.com/search?q=https://www.aepd.es/guias/guia-privacidad-desde-el-diseno.pdf)](https://www.aepd.es/guias/guia-privacidad-desde-diseno.pdf)
+**Usabilidad para el diseño de interfaces de usuario:** https://www.nngroup.com/articles/ten-usability-heuristics/
+
+**Guía de contraste de colores:** https://webaim.org/articles/contrast/
 
 # 2.5 Pautas de aspecto: colores, fuentes, iconos, distribución
 
