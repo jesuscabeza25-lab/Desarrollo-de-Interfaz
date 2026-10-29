@@ -71,6 +71,10 @@ Las ventajas del formato SVG es que no pierde resolución ni nitidez al ser ampl
 
 * **Interactividad y dinamismo visual:** El formato SVG es compatible con CSS y JavaScript, lo que permite aplicar efectos de movimientos, transiciones suaves y estados interactivos (como cambios de color o animaciones de trazo).
 
+| Logo estático SVG (3 KB) | Logo animado SVG (5 KB) |
+| :---: | :---: |
+| ![Logo Estático](img/logo-PayClear.svg) | ![Logo Animado](img/logoAnimado-PayClear.svg) |
+
 ### 2.5.4. Distribución de Elementos
 
 La maquetación organiza el espacio para conseguir tener una navegación intuitiva y sin sobrecarga la interfaz:
@@ -83,10 +87,10 @@ La maquetación organiza el espacio para conseguir tener una navegación intuiti
 
 ### **Fuentes:**
 
-* Adobe. (s. f.). *Archivo SVG: Qué es un archivo SVG*. Adobe Creative Cloud. [https://www.adobe.com/es/creativecloud/file-types/image/vector/svg-file.html](https://www.adobe.com/es/creativecloud/file-types/image/vector/svg-file.html)
+* Adobe. (s. f.). *Archivo : Qué es un archivo *. Adobe Creative Cloud. [https://www.adobe.com/es/creativecloud/file-types/image/vector/-file.html](https://www.adobe.com/es/creativecloud/file-types/image/vector/-file.html)
 
 
-* Calou, J. (s. f.). *Guía: Cómo Animar con SVG*. Toptal. [https://www.toptal.com/developers/front-end/guia-como-animar-con-svg](https://www.toptal.com/developers/front-end/guia-como-animar-con-svg)
+* Calou, J. (s. f.). *Guía: Cómo Animar con *. Toptal. [https://www.toptal.com/developers/front-end/guia-como-animar-con-](https://www.toptal.com/developers/front-end/guia-como-animar-con-)
 
  
 * Jimdo. (2015, 10 de febrero). Cómo elegir los colores para tu página web. Jimdo Blog. https://www.jimdo.com/es/blog/colores-paginas-web/
