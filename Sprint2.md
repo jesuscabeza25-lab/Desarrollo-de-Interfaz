@@ -160,6 +160,34 @@ La maquetación organiza el espacio para conseguir tener una navegación intuiti
 * Alex, D. (2024, 10 de octubre). *Cómo elegir las fuentes para tu sitio web*. Squarespace Blog. [https://es.squarespace.com/blog/como-elegir-las-fuentes-de-un-sitio-web](https://es.squarespace.com/blog/como-elegir-las-fuentes-de-un-sitio-web)
 
 ---
+## 2.6. Componentes reutilizables, controles de entrada, feedback y adaptabilidad
+
+> Fuentes: material de clase de la Unidad 1.2 (usabilidad, HCI y decálogo de Nielsen) y presentación de Willman.
+
+### 2.6.1. Componentes reutilizables
+Repetimos los mismos bloques en toda la app para que el usuario los reconozca:
+- **Tarjeta de saldo:** Aparecerá en verde te deben (acreedor) y en rojo si debes (deudor) y en gris si no hay deudas de ningún tipo.
+- **Fila de lista:** tiene la misma estructura en grupos, participantes y movimientos.
+- **Botones:** principal (verde oscuro, "Registrar gasto") y secundarios (con borde, "Saldar cuentas").
+- **Etiquetas pequeñas:** "100% offline", "3 integrantes", "Acreedor/Deudor".
+- **Medidas base:** márgenes internos iguales y bordes finos grises. En Figma las esquinas eran de 12–16 px, en Swing quedan rectas, algo que mejorar a futuro si lo vemos conveniente para la mejoría del aspecto de la aplicacion.
+
+### 2.6.2. Consistencia en los controles de entrada
+- Los importes llevan el símbolo **€** dentro del campo.
+- Los campos tienen un texto de ayuda ("Mínimo 4 caracteres", "Ej. Cena, compra, taxi").
+- La contraseña tiene un ojo para poder verla.
+- "Pagado por" es un desplegable, y "Dividir entre" son casillas con estado claro: marcada con fondo verde.
+- El foco y  el pasar el ratón por encima lo gestiona FlatLaf, igual en todos los controles de cada vista.
+
+### 2.6.3. Retroalimentación visual
+- Los botones y campos cambian al pasar el ratón o seleccionarlos.
+- Los movimientos muestran su estado ("Pendiente") y la barra inferior informa del estado de la bóveda.
+- Al ser una app **100% local no hay cargas**: la respuesta es inmediata. 
+
+### 2.6.4. Adaptabilidad
+- Todas las pantallas comparten estructura: menú lateral fijo y zona central que se ajusta al tamaño de la ventana.
+- La app es de  escritorio,  la version para movil se realizara a futuro. (solo en Figma de momento).
+---
 
 ## 2.7. Pautas de la secuencia de control de la aplicación
 
