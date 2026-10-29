@@ -284,6 +284,72 @@ Figma (wireframes y mockups) · NetBeans con su diseñador (maquetación) · Jav
   * *Prevención de errores (Restricción):* El uso de menús desplegables para seleccionar "Pagado por" y *checkboxes* para elegir a los deudores evita que el usuario introduzca datos incorrectos manualmente.
 ---
 
+## **2.4. Pautas de diseño estructural: menús, ventanas, cuadros de diálogo y atajos de teclado**
+
+En este apartado contamos **cómo está organizada PayClear**: qué pantallas tiene, cómo se pasa de una a otra, cómo funcionan las ventanas emergentes y qué atajos de teclado hay. Con tres ideas en mente: que la persona **sepa siempre dónde está**, que **todo funcione igual en todas partes** y que se pueda usar **también con el teclado**.
+
+### **2.4.1. Qué pantallas y ventanas tiene la aplicación**
+
+Las ordenamos en tres niveles, de lo más general a lo más puntual.
+
+| Nivel                           | Qué es                                  | Qué contiene                                                                                                                                       |
+| ------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Pantallas principales        | Donde se entra y se trabaja             | La pantalla de acceso al grupo (con contraseña) y la pantalla principal, con las tarjetas de saldo, el historial de gastos y los botones de acción |
+| 2. Secciones de trabajo         | Lo que se cambia desde la barra lateral | Inicio, Participantes, Calculadora e Historial                                                                                                     |
+| 3. Ventanas emergentes y avisos | Lo que aparece encima de lo demás       | Registrar un gasto (DialogoGasto), plan de compensación (DialogoLiquidacion), ajustes y seguridad, y avisos de confirmación                        |
+
+-   **Ventanas emergentes (diálogos):** hay que terminar lo que se está haciendo, o cerrarlas, para seguir. Se abren centradas sobre la ventana principal y así no se pierde el contexto.
+-   **Avisos pequeños (*****toasts*****):** mensajes breves en la **esquina inferior**, como "Gasto guardado". No bloquean nada y desaparecen solos a los pocos segundos.
+
+### **2.4.2. Cómo se navega y qué menús hay**
+
+Usamos **tres tipos de menú**, cada uno para lo que mejor sirve:
+
+-   **Barra lateral fija** (a la izquierda) para **cambiar de sección**: Inicio, Participantes, Calculadora e Historial, siempre en ese orden. Cada opción tiene **icono y texto**, así se reconoce sin tener que acordarse. La sección en la que estás aparece **resaltada**.
+-   **Botones de acción siempre visibles**: **Nuevo gasto** y **Liquidar**, para lo que más se hace en la app.
+-   **Menú contextual** (clic derecho) para hacer algo con un elemento concreto: sobre un gasto, eliminarlo; sobre una tarjeta de saldo, ver solo los gastos de esa persona.
+
+Desde la pantalla principal se llega a cualquier acción en **máximo 2 clics**.
+
+| Elemento                       | ¿Se ve siempre?       | Para qué sirve                     |
+| ------------------------------ | --------------------- | ---------------------------------- |
+| Barra lateral                  | Sí                    | Cambiar de sección sin perderse    |
+| Sección resaltada              | Sí                    | Saber dónde estoy                  |
+| Botones Nuevo gasto y Liquidar | Sí                    | Hacer lo más habitual              |
+| Menú contextual                | Al hacer clic derecho | Acciones rápidas sobre un elemento |
+
+### **2.4.3. Cómo funcionan las ventanas emergentes**
+
+Todas siguen las mismas normas, para que la persona sepa qué esperar:
+
+-   **El botón Guardar está apagado** hasta que los datos sean correctos (concepto escrito e importe en número). Así se evitan errores antes de que ocurran.
+-   **Los mensajes son cortos y sin tecnicismos**: dicen qué ha pasado y cómo arreglarlo. Por ejemplo: "El importe debe ser un número, por ejemplo 12,50".
+-   **Al eliminar un gasto se pide confirmación**, y el botón marcado por defecto es **Cancelar**, no Eliminar.
+-   **Poca información en cada una**, y siempre con los mismos colores, letras y botones.
+
+### **2.4.4. Atajos de teclado**
+
+Pensados para quien usa la app a menudo y quiere hacerlo **todo sin tocar el ratón**. Son teclas que mucha gente ya conoce.
+
+| Tecla             | Qué hace                                                  |
+| ----------------- | --------------------------------------------------------- |
+| Tab / Mayús + Tab | Pasar de un campo al siguiente, o volver al anterior      |
+| Enter             | Confirmar el formulario o pulsar el botón seleccionado    |
+| Esc               | Cerrar al momento cualquier ventana emergente sin guardar |
+| Ctrl + N          | Abrir "Nuevo gasto" desde cualquier sección               |
+| Ctrl + 1 a 4      | Ir a Inicio, Participantes, Calculadora o Historial       |
+| F1                | Abrir una ayuda con la lista de atajos                    |
+| Ctrl + L          | Bloquear la aplicación                                    |
+
+Además:
+
+-   El elemento seleccionado siempre se ve con un **recuadro de foco**.
+-   Al cerrar una ventana emergente, el foco vuelve a donde estaba la persona.
+  
+### **Fuentes**
+
+-   Acosta Lugo, W. (2026). *UD01.2. Usabilidad: Unidad 4. Diseño de interfaces atendiendo a criterios de usabilidad* \[Presentación\]. Desarrollo de Interfaces, Campus Cámara Comercio Sevilla.
+-   Nielsen, J. (1994). *10 Usability Heuristics for User Interface Design*. [https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)
 
 
 # 2.5 Pautas de aspecto: colores, fuentes, iconos, distribución
