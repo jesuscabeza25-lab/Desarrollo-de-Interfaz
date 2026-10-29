@@ -1,3 +1,8 @@
+# PayClear - Documentación Técnica - SPRINT 2
+
+* **Módulo:** Desarrollo de Interfaces (DII)
+* **Equipo:** Jesús, José Luis, Guillermo
+* **Fecha de entrega Sprint 2:** 30/10/2026
 
 ### **2.1. Usabilidad y accesibilidad: características, pautas y estándares**
 
