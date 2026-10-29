@@ -246,44 +246,48 @@ Como la aplicación puede usarse en ordenadores compartidos de un piso de estudi
 * **Uifrommars** *Heurísticas de Nielsen: las 10 heuristicas de Nielsen:* https://uifrommars.com/10-reglas-heuristicas-como-aplicarlas/
 * **Acosta Lugo, W. (2026), Desarrollo de Interfaces, Campus Cámara FP (EUSA) Sevilla.**  https://docs.google.com/presentation/d/1RENkac6LJWCK7VsLMN4KRsrvTlCqjNoHPTaZd8lSTQw/edit?usp=sharing.
 
-## 2.8. Cronograma de ejecución
+# 2.8. Cronograma de ejecución
 
-Para organizar el trabajo del **Sprint 02** (del 15 al 30 de octubre de 2026) nos hemos dividido las tareas entre los tres. Planificamois el esfuerzo en **horas reales de dedicación** y manteniendo una correspondencia exacta con las tarjetas abiertas en nuestro tablero Kanban de GitHub Projects.
+Para organizar el trabajo del **Sprint 02** (del 15 al 30 de octubre de 2026) nos hemos dividido las tareas entre los tres. Planificamos el esfuerzo en **horas reales de dedicación** y mantenemos una correspondencia exacta con las tarjetas abiertas en nuestro tablero Kanban de GitHub Projects.
 
 ## 2.8.1. Desglose real de trabajo por sesiones
 
-1. **Fase 1 - Clases teoricas + Arranque de usabilidad y planteamiento de navegación (15 oct - 21 oct):** Se repartieron las tarjetas en GitHub Projects. Jesús empezó con el apartado de usabilidad y accesibilidad (`[2.1]`) mientras que Guillermo planteaba la base de la secuencia de control y el flujo de pantallas (`[2.7]`).
-
-2. **Fase 2 - Aspecto visual, auditoría y primeros cambios en Mockups (22 oct - 27 oct):** Guillermo desarrolló las pautas de aspecto con la paleta accesible WCAG 2.1, tipografías y creación de los logos en SVG (`[2.5]`). En paralelo, Jesús avanzó con las métricas y herramientas de auditoría (`[2.2]`) y José Luis empezó a hacer los Wireframes y Mockups (`[2.3]`).
-
-3. **Fase 3 - Cierre de secuencia de control y estructura de interfaz (28 oct):** Guillermo remató el diagrama de flujo de vistas (desde `P1` hasta las `P3.x`) y la documentación del punto `[2.7]`. Jesús termino el `[2.2]` y dejó redactado el borrador de diseño estructural de menús, modales y atajos (`[2.4]`).
-
-4. **Fase 4 - Revisión cruzada, componentes visuales y cierre del sprint (29 oct - 30 oct):** Revisión en grupo de lo redactado. Jesús aplicó las correcciones acordadas por el equipo para cerrar el `[2.4]`, José Luis termina de documentar los Mockups (`[2.3]`) y completa las pautas de componentes visuales (`[2.6]`); y Guillermo cierra el cronograma (`[2.8]`). Entre el 29 y el 30 dejamos lista la presentación para la *Sprint Review*.
+1. **Fase 1 - Clases teóricas, reparto y arranque (15 oct - 21 oct):** Se repartieron las tarjetas en GitHub Projects. A partir del día 19, Jesús empezó con usabilidad y accesibilidad (`[2.1]`) y con el diseño estructural de menús, ventanas y atajos (`[2.4]`); Guillermo comenzó las pautas de aspecto (`[2.5]`); y José Luis empezo con los wireframes y mockups (`[2.3]`).
+2. **Fase 2 - Aspecto visual y arranque de auditoría y secuencia (22 oct - 27 oct):** Guillermo cerró las pautas de aspecto el día 26, con la paleta accesible WCAG 2.1, las tipografías y los logos en SVG (`[2.5]`). Ese mismo día empezó la secuencia de control (`[2.7]`) y Jesús arrancó las métricas y herramientas de auditoría (`[2.2]`). Mientras tanto, Jesús y José Luis siguieron avanzando con `[2.1]`, `[2.4]` y `[2.3]`.
+3. **Fase 3 - Cierre de secuencia y usabilidad (28 oct):** Guillermo terminó el diagrama de flujo de vistas (de `P1` a `P3.x`) y la documentación del punto `[2.7]`[cite: 2]. Jesús dejó cerrado el `[2.1]`.
+4. **Fase 4 - Revisión cruzada, componentes y cierre del sprint (29 oct - 30 oct):** Revisión en grupo de lo redactado. Jesús aplicó las correcciones acordadas y cerró `[2.2]` y `[2.4]`; José Luis terminó de documentar los mockups (`[2.3]`) y completó las pautas de componentes visuales (`[2.6]`); y Guillermo cerró este cronograma (`[2.8]`). Entre el 29 y el 30 dejamos lista la presentación para la *Sprint Review*.
 
 ---
 
 ## 2.8.2. Asignación de recursos, tarjetas (GitHub Issues) y horas dedicadas
 
-| Tarjeta / Entregable en GitHub Projects | Responsable | Inicio - Fin real | Horas | 
+| Tarjeta / Entregable en GitHub Projects | Responsable | Inicio - Fin real | Horas |
 | :--- | :--- | :---: | :---: |
 | **`[2.1]`** Usabilidad y accesibilidad: características, pautas y estándares | **Jesús** | 19/10 - 28/10 | 4 h |
-| **`[2.7]`** Pautas de la secuencia de control de la aplicación (`#18`) | **Guillermo** | 26/10 - 28/10 | 5 h | 
-| **`[2.5]`** Pautas de aspecto: colores, fuentes, iconos, distribución (`#17`) | **Guillermo** | 19/10 - 26/10 | 5 h | 
-| **`[2.2]`** Medidas de usabilidad y accesibilidad; herramientas de auditoría | **Jesús** | 26/10 - 29/10 | 4 h | 
-| **`[2.3]`** Seguimiento, modificación y documentación de Wireframes y Mockups | **José Luis** | 19/10 - 29/10 | 6 h | 
-| **`[2.4]`** Pautas de diseño estructural: menús, ventanas, diálogos, atajos | **Jesús** | 19/10 - 29/10 | 4 h | 
-| **`[2.6]`** Pautas para el desarrollo de componentes visuales | **José Luis** | 29/10 - 29/10 | 4 h | 
-| **`[2.8]`** Cronograma de ejecuciónv | **Guillermo** | 29/10 - 29/10 | 2 h | 
-| **`[Sprint Review]`** Presentación y defensa del Sprint 02 | **Todo el grupo** | 29/10 - 30/10 | 40 minutos (x3) | 
+| **`[2.5]`** Pautas de aspecto: colores, fuentes, iconos, distribución | **Guillermo** | 19/10 - 26/10 | 5 h |
+| **`[2.3]`** Seguimiento, modificación y documentación de wireframes y mockups | **José Luis** | 19/10 - 29/10 | 6 h |
+| **`[2.4]`** Pautas de diseño estructural: menús, ventanas, diálogos, atajos | **Jesús** | 19/10 - 29/10 | 3 h |
+| **`[2.7]`** Pautas de la secuencia de control de la aplicación | **Guillermo** | 26/10 - 28/10 | 3 h |
+| **`[2.2]`** Medidas de usabilidad y accesibilidad; herramientas de auditoría | **Jesús** | 26/10 - 29/10 | 3 h |
+| **`[2.6]`** Pautas para el desarrollo de componentes visuales | **José Luis** | 29/10 - 29/10 | 2 h |
+| **`[2.8]`** Cronograma de ejecución | **Guillermo** | 29/10 - 29/10 | 2 h |
+| **`[Sprint Review]`** Presentación y defensa del Sprint 02 | **Todo el grupo** | 29/10 - 30/10 | 40 min (x3) |
+
+**Total por persona:** Jesús: 10 h · Guillermo: 10 h · José Luis: 8 h (más la preparación de la *Sprint Review*).
+
+---
 
 ## 2.8.3. Diagrama de Gantt y sincronización con Kanban
 
-* **Dependencias reales y revisión en equipo:** El trabajo arrancó definiendo cómo se comporta la aplicación (`[2.1]` y `[2.7]`) y su estética (`[2.5]`). Esto permitió a José Luis hacer los Mockups (`[2.3]`) y rematar el 29 con los componentes visuales (`[2.6]`). Además, antes de dar por cerradas las tarjetas en el Kanban, hicimos una revisión grupal que sirvió para pulir el punto `[2.4]` y alinear los textos con el prototipo final.
+<img width="651" height="499" alt="Image" src="https://github.com/user-attachments/assets/2b775312-29e1-4372-b3b7-50a578ce4ea6" />
 
-* **Estado del tablero Kanban (GitHub Projects):** Hoy jueves 29 de octubre quedan movidas a la columna *Terminado* las tarjetas `[2.1]` a `[2.8]`, manteniendo en curso únicamente la tarjeta conjunta `[Sprint Review] Presentación` para la entrega de mañana viernes 30 de octubre.
+* **Dependencias y revisión en equipo:** El trabajo se organizó con tareas en paralelo desde el 19 de octubre (`[2.1]`, `[2.3]`, `[2.4]` y `[2.5]`). Las dependencias directas son dos: las pautas de componentes visuales (`[2.6]`) necesitan tener definido el aspecto visual (`[2.5]`) y los mockups (`[2.3]`), y la *Sprint Review* depende de que todas las tarjetas anteriores estén cerradas. Antes de mover las tareas a *Terminado*, hicimos una revisión grupal que sirvió para pulir el punto `[2.4]` y alinear los textos con el prototipo final.
+* **Estado del tablero Kanban (GitHub Projects):** Hoy jueves 29 de octubre, las tarjetas `[2.1]` a `[2.8]` están ya en la columna *Terminado*. Solo sigue en curso la tarjeta conjunta `[Sprint Review] Presentación` para la defensa de mañana viernes 30 de octubre.
 
-![Diagrama de Gantt](img/Gantt_Sprint2_PayClear.png)
+![Diagrama Vistas](img/Gantt_Sprint2_PayClear.png) 
 
-## Fuentes utilizadas:
+---
 
-*Diagrama de Gantt: guía paso a paso, ejemplos y Excel*, **Julia Martins, 14 de agosto de 2026**, [asana.com](https://asana.com/es/resources/gantt-chart-basics)
+# Fuentes utilizadas
+
+* **Martins, J. (2026, 14 de agosto).** *Diagrama de Gantt: guía paso a paso, ejemplos y Excel*. Asana. https://asana.com/es/resources/gantt-chart-basics
