@@ -38,6 +38,8 @@ La aplicación cumple con las normas oficiales de accesibilidad para programas i
 
 **Guía de contraste de colores:** https://webaim.org/articles/contrast/
 
+---
+
 # 2.5 Pautas de aspecto: colores, fuentes, iconos, distribución
 
 ### 2.5.1. Colores y Accesibilidad (WCAG 2.1)
@@ -96,3 +98,58 @@ La maquetación organiza el espacio para conseguir tener una navegación intuiti
 
 
 * Alex, D. (2024, 10 de octubre). *Cómo elegir las fuentes para tu sitio web*. Squarespace Blog. [https://es.squarespace.com/blog/como-elegir-las-fuentes-de-un-sitio-web](https://es.squarespace.com/blog/como-elegir-las-fuentes-de-un-sitio-web)
+
+---
+
+## 2.7. Pautas de la secuencia de control de la aplicación
+
+
+### 2.7.1. Modelo de flujo y navegación de pantallas
+
+Para organizar cómo se mueve el usuario dentro de **PayClear**, planteamos un diagrama de flujo donde cada recuadro corresponde a una pantalla del programa. Y para evitar repetir elementos comunes en la documentación, el **menú lateral fijo** se trata como un bloque independiente que se mantiene constante mientras cambia el contenido central.
+#### 1. Secuencia lógica de uso y pantallas del sistema
+* **`P1` - Pantalla de Desbloqueo de la Bóveda (`VistaBoveda`) [Condicional / Opcional]:** Esta pantalla solo aparecerá si el usuario ha pone una contraseña o cuando bloquea la sesión a propósito (desde P2 o P3). Si el grupo no tiene clave, la aplicación entra directamente a P2.
+* **`P2` - Selección de Grupos (`VistaSeleccionGrupo`):** Es la vista donde se ven los archivos `.json` guardados en local (ej: *"Piso Nervión"* o *"Viaje Fin de Curso" ...*). Aquí se elige con qué grupo trabajar o si crear uno desde cero.
+* **`P3` - Detalles y Balances (`VistaPrincipal`):** Es la pantalla principal donde se ve todo. A la izquierda agrupa el resumen superior (`balance-hero`), las tarjetas de saldo de cada amigo y el historialy los ajustes; a la derecha está fija la calculadora rápida para hacer las cuentas rapidamente sin cambiar de ventana.
+* **`P3.1`, `P3.2` y `P3.3` - Ventanas Modales (`JDialog`):** Son pantallas emergentes para tareas concretas (meter un gasto nuevo, repartir un ticket detallado o ver el plan de liquidación). Tienen una relación bidireccional con `P3`: cuando se abren, bloquean el fondo para que el usuario no se distraiga y, al terminar o cancelar, siempre devuelven el control a la pantalla principal.
+<img width="793" height="935" alt="Image" src="https://github.com/user-attachments/assets/0de5c64f-4d61-485f-bd1d-de310bfdaccf" />
+
+
+### 2.7.2. Gestión visual de errores y condiciones límite
+
+La interfaz controla las entradas de datos en dos fases para evitar errores que descuadren las cuentas del grupo. Primero bloquea fallos comunes desde los propios controles y, si aun así falta algo, avisa en el mismo formulario.
+
+Los botones de confirmación (`btnGuardar` en los modales o `Crear` al añadir un grupo) están desactivados mientras queden campos obligatorios en blanco. Y tampoco se pueden meter letras o signos negativos en las casillas de dinero: en Swing filtramos el texto con `DocumentFilter` o `JFormattedTextField`, y en el prototipo limitamos el campo con `type="number"` y `min="0"`.
+
+Si el usuario intenta guardar un importe de `0,00 €`, poner una contraseña 4 o menos caracteres o repite el nombre de un grupo que ya existe, el programa avisa en el propio campo sin sacar ventanas emergentes (`JOptionPane`) que corten el paso. El borde de la casilla cambia a rojo (`#B53C3C` usando la propiedad `JComponent.outline` de FlatLaf) y debajo sale un texto corto con la etiqueta accesible `role="alert"` explicando qué pasa.
+
+
+| Incidencia del usuario | Respuesta en pantalla | Implementación (Swing / Prototipo) |
+| :--- | :--- | :--- |
+| Escribir letras en el importe | El campo ignora las teclas y deja solo números y coma decimal (`0,00`). | Filtro de entrada numérica (`DocumentFilter` / `inputMode="decimal"`). |
+| Importe negativo o a cero (`<= 0`) | Borde rojo (`#B53C3C`) y mensaje: *"Introduce un importe mayor que 0"*. | Propiedad `JComponent.outline = "error"` en FlatLaf y aviso inferior. |
+| Dejar el concepto o nombre vacío | Botón de guardar desactivado (opacidad al 45%-60%) y cursor en el campo vacío. | `setEnabled(false)` conectado al `DocumentListener` del formulario. |
+| Fallar la contraseña en Bóveda (`P1`) | Recuadro de aviso con fondo rosa claro (`#FFF0EE`), borde `#F3BDB8` y letras rojas (`#B53C3C`). | Mensaje con `role="alert"` y foco devuelto al campo de contraseña. |
+
+### 2.7.3. Secuencia de actualización reactiva de la interfaz
+
+En PayClear no hace falta darle a ningún botón de refrescar para ver los saldos al día. Cuando se guarda un cambio en cualquiera de las ventanas modales (`P3.1`, `P3.2` o `P3.3`), la pantalla principal se actualiza sola en cuatro pasos:
+
+1. El controlador recoge los datos del modal, añade el movimiento a la lista y guarda los cambios en el archivo `.json` con **Gson** (o en `localStorage` dentro del prototipo).
+2. El programa recalcula en memoria lo que te deben (`toReceive`), lo que debes (`toPay`), el saldo neto del grupo y los pagos mínimos del algoritmo voraz.
+3. Al cerrarse el modal con `dispose()`, la vista `P3` cambia al momento las cifras del bloque superior (`balance-hero`), las tarjetas de los participantes y la tabla de movimientos. En Java Swing hacemos esto llamando a `revalidate()` y `repaint()` dentro del hilo de eventos (**EDT**). Como Swing dibuja los cambios primero en memoria (*doble búfer*) antes de volcarlos a la pantalla, la ventana no parpadea ni hace recargas raras.
+4. Abajo a la derecha sale un aviso flotante durante 4 segundos (`role="status"`, con textos como *"Gasto añadido a pagos pendientes"* o *"Calculadora reiniciada"*) para confirmar que todo se ha guardado sin tapar la tabla.
+
+### 2.7.4. Secuencia de salida y bloqueo seguro
+
+Como la aplicación puede usarse en ordenadores compartidos de un piso de estudiantes, el botón **"Bloquear bóveda"** (o el atajo `Ctrl + L`) cierra la sesión al instante para que nadie cotillee las cuentas:
+
+1. Si hay algúna ventana abierta, el programa lo cierra y destruye la ventana activa (`P2` o `P3`) con `dispose()`.
+2. Se borra la marca de sesión activa (`sessionStorage` o la referencia del grupo cargado en la memoria RAM) y se limpian las variables temporales de los formularios.
+3. La aplicación vuelve a la pantalla de bloqueo (`P1`) y coloca el cursor (`autoFocus`) directamente en la casilla de la contraseña.
+
+### Fuentes utilizadas
+
+* **Universitat Oberta de Catalunya (UOC).** *El diseño de la interacción: Los documentos a entregar (diagrama de navegación y guión técnico)*. Materiales docentes multimedia en español: https://cv.uoc.edu/UOC/a/moduls/90/90_574b/web/main/m5/c4/3.html
+* **Uifrommars** *Heurísticas de Nielsen: las 10 heuristicas de Nielsen:* https://uifrommars.com/10-reglas-heuristicas-como-aplicarlas/
+* **Acosta Lugo, W. (2026), Desarrollo de Interfaces, Campus Cámara FP (EUSA) Sevilla.**  https://docs.google.com/presentation/d/1RENkac6LJWCK7VsLMN4KRsrvTlCqjNoHPTaZd8lSTQw/edit?usp=sharing. 
