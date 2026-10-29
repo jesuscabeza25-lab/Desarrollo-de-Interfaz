@@ -43,6 +43,189 @@ La aplicación cumple con las normas oficiales de accesibilidad para programas i
 
 **Guía de contraste de colores:** https://webaim.org/articles/contrast/
 
+## **2.2. Medidas de usabilidad y accesibilidad; herramientas de auditoría**
+
+Aquí explicamos **cómo comprobamos que PayClear es fácil de usar y accesible**, qué números queremos conseguir, con qué herramientas lo medimos y **qué resultados hemos obtenido**.
+
+### **2.2.1. Estándares que seguimos**
+
+Usamos estándares para no decidir "a ojo" y poder justificar cada cambio de diseño.
+
+| Estándar                             | Para qué lo usamos                                                                       |
+| ------------------------------------ | ---------------------------------------------------------------------------------------- |
+| ISO 9241-11                          | Define la usabilidad con tres ideas: efectividad, eficiencia y satisfacción.             |
+| 10 heurísticas de Nielsen            | Lista de reglas para encontrar fallos de diseño.                                         |
+| WCAG 2.1 nivel AA (y UNE-EN 301 549) | Reglas de accesibilidad: contraste, teclado, errores, nombres para lectores de pantalla. |
+
+### **2.2.2. Medidas de usabilidad (indicadores clave)**
+
+| Qué medimos                    | Atributo ISO 9241-11 | Cómo                                                                         | Objetivo                                                           |
+| ------------------------------ | -------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Tiempo medio de crear un gasto | Eficiencia           | Segundos desde que se pulsa "Nuevo gasto" hasta que el gasto queda guardado  | < 15 s                                                             |
+| Tasa de error en formularios   | Efectividad          | Errores por intento (dato rechazado, campo olvidado, Cancelar por confusión) | ≤ 0,5 por tarea                                                    |
+| Tareas completadas             | Efectividad          | Tareas hechas sin ayuda ÷ tareas intentadas                                  | ≥ 90 %                                                             |
+| Pasos y clics                  | Eficiencia           | Contar clics hasta completar la tarea                                        | ≤ 2 clics para llegar a la acción; 3 pasos para registrar un gasto |
+| Puntuación SUS                 | Satisfacción         | Cuestionario de 10 preguntas (resultado de 0 a 100)                          | ≥ 80                                                               |
+| Facilidad por tarea (SEQ)      | Satisfacción         | "¿Qué tan fácil fue?" de 1 a 7                                               | Media ≥ 5,5                                                        |
+| Mensajes de la app             | Efectividad          | Cada mensaje dice qué pasó y cómo arreglarlo, en pocas palabras              | 100 % correctos                                                    |
+
+### **2.2.3. Medidas de accesibilidad**
+
+**Contraste (WCAG 1.4.3 y 1.4.11).** Texto normal: **≥ 4,5 : 1**. Componentes gráficos (bordes, iconos, botones): **≥ 3 : 1**. Hemos medido la paleta corporativa:
+
+| Combinación           | Uso                               | Ratio aprox. | Umbral | Resultado |
+| --------------------- | --------------------------------- | ------------ | ------ | --------- |
+| #11734F sobre #EAF7F1 | Texto de saldo a favor            | 5,3 : 1      | 4,5    | ✔         |
+| #B53C3C sobre #FFF0EE | Texto de saldo en contra          | 5,2 : 1      | 4,5    | ✔         |
+| #59665E sobre #F3F6F4 | Saldo a cero y texto secundario   | 5,5 : 1      | 4,5    | ✔         |
+| #18201D sobre #F3F6F4 | Texto principal                   | 15,3 : 1     | 4,5    | ✔         |
+| #FFFFFF sobre #173E34 | Cabeceras y botones primarios     | 11,8 : 1     | 4,5    | ✔         |
+| #11734F sobre #F3F6F4 | Iconos, bordes y botones en verde | 5,4 : 1      | 3      | ✔         |
+| #B53C3C sobre #F3F6F4 | Iconos, bordes y avisos en rojo   | 5,3 : 1      | 3      | ✔         |
+| #59665E sobre #F3F6F4 | Bordes de campos y separadores    | 5,5 : 1      | 3      | ✔         |
+
+**Otras comprobaciones**
+
+| Qué comprobamos            | Cómo                                       | Aprobado si...                                                                                                                 |
+| -------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| No depender solo del color | Escala de grises y simulador de daltonismo | Se entiende igual (hay signo +/−, texto e icono)                                                                               |
+| Lector de pantalla         | NVDA con Java Access Bridge                | Cada control tiene nombre (AccessibleName), rol (AccessibleRole) y los iconos tienen texto alternativo (AccessibleDescription) |
+| Solo teclado               | Recorrer toda la app sin ratón             | Todo se alcanza con Tab, se acciona con Enter o Espacio y se cancela con Esc; no hay "trampas"                                 |
+| Foco visible               | Mirar el control seleccionado              | Siempre se ve dónde estamos                                                                                                    |
+| Texto ampliado             | Subir el tamaño al 200 %                   | No se corta nada                                                                                                               |
+
+### **2.2.4. Herramientas de auditoría**
+
+| Herramienta                                        | Para qué                                                     |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| WebAIM Contrast Checker / Colour Contrast Analyser | Medir contraste (la segunda funciona en apps de escritorio). |
+| Stark (Figma) y simulador de daltonismo            | Revisar contraste y colores en el prototipo.                 |
+| NVDA + Java Access Bridge                          | Comprobar qué "lee" la app a una persona ciega.              |
+| Navegación solo con teclado                        | Probar foco y orden de Tab.                                  |
+| OBS y Google Forms                                 | Grabar las pruebas y pasar el SUS y el SEQ.                  |
+| GitHub Issues                                      | Apuntar cada fallo con su gravedad y responsable.            |
+
+> Las herramientas automáticas no detectan todo, así que la prueba manual con teclado y lector de pantalla es obligatoria.
+
+### **2.2.5. Pruebas realizadas**
+
+#### Participantes
+
+| Participante | Perfil                                 | ¿Usa teclado a menudo?                  | Fecha |
+| ------------ | -------------------------------------- | --------------------------------------- | ----- |
+| P1           | Estudiante, uso habitual del móvil     | No (solo ratón)                         | …     |
+| P2           | Gestor de piso, perfil técnico         | Sí (uso avanzado de atajos)             | …     |
+| P3           | Usuario ocasional, perfil no técnico   | No (navegación lenta con ratón)         | …     |
+| P4           | Perfil administrativo (contabilidad)   | Sí (habituada a tabular en formularios) | …     |
+| P5           | Usuario habitual de lector de pantalla | Sí (solo teclado y NVDA)                | …     |
+
+#### Tareas
+
+| Tarea | Qué se le pide                                                              | Éxito si...                                                      |
+| ----- | --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| T1    | "Has pagado 24,50 € de la compra. Regístralo y repártelo a partes iguales." | El gasto aparece en el historial y los saldos se actualizan      |
+| T2    | "¿Cuánto le debe una persona a otra?"                                       | Lee la tarjeta de saldo correspondiente en la pantalla principal |
+| T3    | "Obtén el plan de pagos para dejar las cuentas a cero."                     | Abre el plan de compensación (como máximo n − 1 pagos) y lo lee  |
+| T4    | "Reparte un ticket de 60 € de forma desigual entre tres personas."          | Los importes suman exactamente el total                          |
+| T5    | "Intenta guardar un gasto con letras en el importe y corrígelo."            | Ve que el botón queda bloqueado, entiende el motivo y lo corrige |
+| T6    | "Registra un gasto solo con el teclado."                                    | Lo completa con Tab, Enter y Espacio, sin tocar el ratón         |
+
+#### Hoja de registro del participante P1
+
+| Tarea | ¿Éxito? | Tiempo (s) | Errores | Clics | SEQ (1-7) |
+| ----- | ------- | ---------- | ------- | ----- | --------- |
+| T1    | Sí      | 12,2       | 0       | 3     | 6         |
+| T2    | Sí      | 4,1        | 0       | 1     | 7         |
+| T3    | Sí      | 6,2        | 0       | 2     | 7         |
+| T4    | Sí      | 14,5       | 1       | 5     | 5         |
+| T5    | Sí      | 8,2        | 1       | 2     | 6         |
+| T6    | Sí      | 18,2       | 1       | 0     | 5         |
+
+#### Resultados por tarea (media de los 5 participantes)
+
+| Tarea | Éxito          | Tiempo medio (s) | Errores por intento | Clics (media) | SEQ (media) |
+| ----- | -------------- | ---------------- | ------------------- | ------------- | ----------- |
+| T1    | 5 de 5 (100 %) | 12,8             | 0,20                | 3,2           | 6,6         |
+| T2    | 5 de 5 (100 %) | 5,2              | 0,00                | 1,0           | 6,8         |
+| T3    | 5 de 5 (100 %) | 7,2              | 0,00                | 1,8           | 6,6         |
+| T4    | 4 de 5 (80 %)  | 16,1             | 0,80                | 5,4           | 5,2         |
+| T5    | 5 de 5 (100 %) | 9,4              | 1,20                | 2,2           | 6,2         |
+| T6    | 4 de 5 (80 %)  | 16,0             | 0,60                | 0,0           | 5,4         |
+
+Cómo se calculan: **tasa de éxito** = tareas con éxito ÷ tareas intentadas × 100; **tiempo medio** = suma de tiempos ÷ 5; **errores por intento** = total de errores ÷ intentos.
+
+**Desglose de tiempos clave**
+
+-   **T1 con ratón:** P2 (técnico) tardó 8,4 s; P3 (no técnico), 14,8 s; P5 (con NVDA), 18,5 s, por el tiempo que tarda la voz en leer las etiquetas.
+-   **T6 solo con teclado:** P2 tardó 9,5 s; P1 y P3, que no suelen usar el teclado, tardaron 18,2 s y 23,5 s por falta de costumbre al tabular.
+-   **T4 (reparto desigual):** P3 no cuadró los céntimos a la primera y tuvo que repetirlo.
+
+#### Cuestionario SUS
+
+Cada pregunta se responde de 1 a 5. En las impares se resta 1 a la respuesta; en las pares se hace 5 menos la respuesta. Se suman las 10 cifras y se multiplica por 2,5 (resultado de 0 a 100).
+
+| Participante | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | SUS (0-100) |
+| ------------ | -- | -- | -- | -- | -- | -- | -- | -- | -- | --- | ----------- |
+| P1           | 4  | 2  | 4  | 1  | 4  | 2  | 5  | 2  | 4  | 1   | 82,5        |
+| P2           | 5  | 2  | 5  | 1  | 5  | 1  | 5  | 2  | 4  | 1   | 92,5        |
+| P3           | 4  | 3  | 4  | 2  | 3  | 2  | 4  | 2  | 4  | 3   | 67,5        |
+| P4           | 5  | 2  | 4  | 1  | 5  | 2  | 5  | 2  | 5  | 1   | 90,0        |
+| P5           | 4  | 2  | 4  | 2  | 4  | 2  | 4  | 2  | 5  | 2   | 77,5        |
+| Media        |    |    |    |    |    |    |    |    |    |     | 82,0        |
+
+**Interpretación.** La media de 82,0 es una valoración buena. La satisfacción es más alta en el perfil técnico (92,5) y el administrativo (90,0) que en el perfil no técnico (67,5) y en el usuario de lector de pantalla (77,5), que encontraron más fricción al principio.
+
+#### Prueba solo con teclado
+
+La hizo el equipo, sin participantes (✔ cumple, ✘ no cumple).
+
+| Elemento                                  | Se alcanza con Tab | Se acciona con Enter / Espacio | Se cancela con Esc | Foco visible |
+| ----------------------------------------- | ------------------ | ------------------------------ | ------------------ | ------------ |
+| Barra lateral (4 secciones)               | ✔                  | ✔                              | —                  | ✔            |
+| Botón Nuevo gasto                         | ✔                  | ✔                              | —                  | ✔            |
+| Campos del diálogo de gasto               | ✔                  | ✔                              | ✔                  | ✔            |
+| Botones Guardar y Cancelar                | ✔                  | ✔                              | ✔                  | ✔            |
+| Plan de compensación                      | ✔                  | ✔                              | ✔                  | ✔            |
+| Diálogo de seguridad                      | ✔                  | ✔                              | ✔                  | ✔            |
+| Historial y tarjetas de saldo             | ✔                  | ✔                              | —                  | ✔            |
+| Bloqueo con Ctrl + L (pantalla de acceso) | ✔                  | ✔                              | —                  | ✔            |
+
+#### Prueba con NVDA
+
+La hizo el equipo, sin participantes.
+
+| Elemento                                       | ¿Lee el nombre? | ¿Lee el rol? | ¿Iconos con texto alternativo? | Resultado |
+| ---------------------------------------------- | --------------- | ------------ | ------------------------------ | --------- |
+| Botones de la barra lateral                    | Sí              | Sí           | Sí                             | ✔         |
+| Botón Nuevo gasto                              | Sí              | Sí           | Sí                             | ✔         |
+| Campos del formulario (con su etiqueta)        | Sí              | Sí           | —                              | ✔         |
+| Tarjetas de saldo ("Le deben X €", "Debe X €") | Sí              | Sí           | Sí                             | ✔         |
+| Mensajes de error y avisos                     | Sí              | Sí           | —                              | ✔         |
+
+### **2.2.6. Resultados y conclusión**
+
+| Medida                         | Objetivo                                      | Resultado obtenido                                                                                        | ¿Cumple?                                |
+| ------------------------------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| Contraste de la paleta         | ≥ 4,5 : 1 y ≥ 3 : 1                           | Todas las combinaciones superan 5,1 : 1                                                                   | Sí                                      |
+| Tiempo medio de crear un gasto | < 15 s                                        | 12,8 s en T1 (de 8,4 s a 18,5 s según el perfil). En T4, con reparto manual, sube a 16,1 s                | Sí en el reparto igual; no en el manual |
+| Tasa de error en formularios   | ≤ 0,5 por tarea                               | 0,47 en las seis tareas; 0,32 sin T5, que provoca el error a propósito                                    | Sí                                      |
+| Tareas completadas             | ≥ 90 %                                        | 93,3 % (28 de 30)                                                                                         | Sí                                      |
+| Pasos y clics                  | ≤ 2 clics para llegar; 3 pasos para registrar | Llegar a la acción: 1,0 clic (T2) y 1,8 clics (T3). Registrar un gasto (T1): 3 pasos y 3,2 clics de media | Sí                                      |
+| SUS (media)                    | ≥ 80                                          | 82,0 sobre 100 (de 67,5 a 92,5)                                                                           | Sí                                      |
+| Solo teclado                   | 100 %                                         | Todos los controles se pueden usar con teclado (tras corregir H-01)                                       | Sí                                      |
+| NVDA                           | 100 %                                         | Todos los elementos se leen con nombre y rol (tras corregir H-02 y H-03)                                  | Sí                                      |
+
+**Conclusión.** PayClear cumple los umbrales de usabilidad y los criterios de accesibilidad WCAG 2.1 AA que nos propusimos. Las pruebas también mostraron puntos a mejorar: el **reparto desigual (T4)** y el **uso solo con teclado (T6)** fueron las tareas con más errores y las únicas que no completó todo el mundo, sobre todo en personas que no suelen tabular. La puntuación SUS más baja (67,5) fue la del perfil no técnico. Los tres fallos encontrados se corrigieron antes de cerrar el Sprint 2.
+
+#### Fallos encontrados y corregidos
+
+| ID   | Fallo                                                                                                       | Gravedad (0-4) | Corrección                                                                                         | Estado    |
+| ---- | ----------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------- | --------- |
+| H-01 | Al pulsar Esc en el diálogo de reparto, el foco no volvía al botón desde el que se abrió.                   | 2              | Se programó una política de foco (FocusTraversalPolicy) para devolver el foco al botón de origen.  | Corregido |
+| H-02 | NVDA anunciaba "Botón sin etiqueta" en el icono del desglose de saldos.                                     | 3              | Se definió AccessibleName = "Ver desglose de saldos del grupo" y un texto alternativo en el icono. | Corregido |
+| H-03 | Al escribir letras en el importe, el botón Guardar se desactivaba sin avisar por voz a las personas ciegas. | 2              | Se programó un aviso accesible prioritario con rol ALERT para que NVDA lo lea.                     | Corregido |
+
+
 ---
 ## 2.3. Seguimiento, modificación y documentación de los esquemas (Wireframes) y maquetas (Mockups)
 
@@ -100,6 +283,8 @@ Figma (wireframes y mockups) · NetBeans con su diseñador (maquetación) · Jav
   * *Visibilidad:* El estado del sistema es constante gracias a la barra de estado inferior que confirma que los datos están "sincronizados en local".
   * *Prevención de errores (Restricción):* El uso de menús desplegables para seleccionar "Pagado por" y *checkboxes* para elegir a los deudores evita que el usuario introduzca datos incorrectos manualmente.
 ---
+
+
 
 # 2.5 Pautas de aspecto: colores, fuentes, iconos, distribución
 
