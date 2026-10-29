@@ -110,14 +110,13 @@ La maquetación organiza el espacio para conseguir tener una navegación intuiti
 
 ### 2.7.1. Modelo de flujo y navegación de pantallas
 
-Para organizar cómo se mueve el usuario dentro de **PayClear**, planteamos un diagrama de flujo donde cada recuadro corresponde a una pantalla del programa. Y para evitar repetir elementos comunes en la documentación, el **menú lateral fijo** se trata como un bloque independiente que se mantiene constante mientras cambia el contenido central.
+Para organizar cómo se mueve el usuario dentro de **PayClear**, planteamos un a de flujo donde cada recuadro corresponde a una pantalla del programa. Y para evitar repetir elementos comunes en la documentación, el **menú lateral fijo** se trata como un bloque independiente que se mantiene constante mientras cambia el contenido central.
 #### 1. Secuencia lógica de uso y pantallas del sistema
 * **`P1` - Pantalla de Desbloqueo de la Bóveda (`VistaBoveda`) [Condicional / Opcional]:** Esta pantalla solo aparecerá si el usuario ha pone una contraseña o cuando bloquea la sesión a propósito (desde P2 o P3). Si el grupo no tiene clave, la aplicación entra directamente a P2.
 * **`P2` - Selección de Grupos (`VistaSeleccionGrupo`):** Es la vista donde se ven los archivos `.json` guardados en local (ej: *"Piso Nervión"* o *"Viaje Fin de Curso" ...*). Aquí se elige con qué grupo trabajar o si crear uno desde cero.
 * **`P3` - Detalles y Balances (`VistaPrincipal`):** Es la pantalla principal donde se ve todo. A la izquierda agrupa el resumen superior (`balance-hero`), las tarjetas de saldo de cada amigo y el historialy los ajustes; a la derecha está fija la calculadora rápida para hacer las cuentas rapidamente sin cambiar de ventana.
 * **`P3.1`, `P3.2` y `P3.3` - Ventanas Modales (`JDialog`):** Son pantallas emergentes para tareas concretas (meter un gasto nuevo, repartir un ticket detallado o ver el plan de liquidación). Tienen una relación bidireccional con `P3`: cuando se abren, bloquean el fondo para que el usuario no se distraiga y, al terminar o cancelar, siempre devuelven el control a la pantalla principal.
-<img width="793" height="935" alt="Image" src="https://github.com/user-attachments/assets/0de5c64f-4d61-485f-bd1d-de310bfdaccf" />
-
+![Diagrama Vistas](img/DiagramaVistas_PayClear.png) 
 
 ### 2.7.2. Gestión visual de errores y condiciones límite
 
@@ -154,6 +153,6 @@ Como la aplicación puede usarse en ordenadores compartidos de un piso de estudi
 
 ### Fuentes utilizadas
 
-* **Universitat Oberta de Catalunya (UOC).** *El diseño de la interacción: Los documentos a entregar (diagrama de navegación y guión técnico)*. Materiales docentes multimedia en español: https://cv.uoc.edu/UOC/a/moduls/90/90_574b/web/main/m5/c4/3.html
+* **Universitat Oberta de Catalunya (UOC).** *El diseño de la interacción: Los documentos a entregar (a de navegación y guión técnico)*. Materiales docentes multimedia en español: https://cv.uoc.edu/UOC/a/moduls/90/90_574b/web/main/m5/c4/3.html
 * **Uifrommars** *Heurísticas de Nielsen: las 10 heuristicas de Nielsen:* https://uifrommars.com/10-reglas-heuristicas-como-aplicarlas/
 * **Acosta Lugo, W. (2026), Desarrollo de Interfaces, Campus Cámara FP (EUSA) Sevilla.**  https://docs.google.com/presentation/d/1RENkac6LJWCK7VsLMN4KRsrvTlCqjNoHPTaZd8lSTQw/edit?usp=sharing. 
