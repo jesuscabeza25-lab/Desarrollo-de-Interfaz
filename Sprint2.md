@@ -39,6 +39,62 @@ La aplicación cumple con las normas oficiales de accesibilidad para programas i
 **Guía de contraste de colores:** https://webaim.org/articles/contrast/
 
 ---
+## 2.3. Seguimiento, modificación y documentación de los esquemas (Wireframes) y maquetas (Mockups)
+
+> Fuentes: material de clase de la Unidad 1.2 (usabilidad, HCI y decálogo de Nielsen) y presentación de Willman.
+
+### 2.3.1 ¿Qué teníamos antes y qué tenemos ahora?
+- **Antes (Sprint 1):** bocetos rápidos en Figma para colocar botones y títulos.
+
+![VistaBloqueoFigma](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaBloqueoFigma.png)
+![VistaGruposFigma](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaGruposFigma.png)
+![VistaHistorialFigma](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaHistorialFigma.png)
+![VistaParticipantesFigma](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaParticipantesFigma.png)
+![VistaPrincipalFigma](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaPrincipalFigma.png)
+
+- **Ahora (Sprint 2):** pantallas finales a color en Figma y su versión real en **Java Swing con FlatLaf**.
+
+![VistaBloqueo](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaBloqueo.png)
+![VistaGrupos](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaGrupos.png)
+![VistaHistorial](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaHistorial.png)
+![VistaParticipantes](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaParticipantes.png)
+![VistaPrincipal](https://raw.githubusercontent.com/jesuscabeza25-lab/Desarrollo-de-Interfaz/main/img/VistaPrincipal.png)
+
+
+### 2.3.2 Fallos detectados y cómo los arreglamos
+| Pantalla | Fallo detectado | Principio aplicado | Solución en la versión nueva |
+|---|---|---|---|
+| Acceso | Parecía un login web (correo y cuenta) y la app no usa internet | Nielsen 2: hablar el idioma del usuario | "Bóveda local bloqueada", solo contraseña, ojo para verla y aviso de modo offline |
+| Inicio | Números sueltos; había que calcular de cabeza | Nielsen 8: diseño minimalista · HCI: visibilidad | Tres tarjetas (Te deben / Debes / Saldo neto), últimas compras y calculadora en la misma pantalla, y botón "Registrar gasto" con atajo Ctrl+N |
+| Participantes | Verde/rojo solo por color: problema con daltonismo | Accesibilidad · Nielsen 5: reconocer antes que recordar | Etiqueta "Acreedor"/"Deudor" más el signo + o − |
+| Gastos | Lista liada: no se veía quién pagó a quién | Nielsen 3: control y libertad | Ventana emergente (Me debe / Le debo) que se cierra con Esc |
+| Historial | Lista de texto y no se sabía si se había guardado | Nielsen 1: visibilidad del estado · HCI: retroalimentación | Tarjetas por movimiento con "Pendiente", barra inferior de estado y avisos |
+
+**Figma frente a Swing (lo que cambió al maquetar):**
+| Aspecto | Figma | Swing + FlatLaf |
+|---|---|---|
+| Sombras y esquinas | Sombras y esquinas redondeadas | Esquinas rectas y sin sombras |
+| Calculadora | "Todos (3)" + "Dividir al instante" | Concepto, pagado por y casillas de "Dividir entre" |
+| Menú lateral | Con "Calculadora" | Sin ella: está integrada en Inicio |
+| Barra inferior | No existía | Estado de la bóveda y atajo de ayuda F1 |
+
+### 2.3.3 ¿Qué es FlatLaf y por qué mejora el proyecto?
+FlatLaf es una librería gratuita que da a Swing un aspecto moderno y plano, como las apps actuales (con modo claro y oscuro). No cambia lo que hace la app, solo cómo se ve. Con ella:
+- Todas las pantallas se ven iguales (**consistencia**).
+- Botones y campos reaccionan al pasar el ratón o al seleccionarlos (**retroalimentación**).
+- El texto se ve nítido y con buen contraste (**accesibilidad**).
+- El estilo se activa en un solo sitio, así que es fácil de mantener.
+
+### 2.3.4 Herramientas usadas
+Figma (wireframes y mockups) · NetBeans con su diseñador (maquetación) · Java Swing · FlatLaf y FlatLaf Extras 3.7.2 · JDK 26 · GitHub (issues y seguimiento).
+
+### 2.3.5 Justificación basada en Usabilidad, Accesibilidad y HCI
+* **Usabilidad:** La aplicación elimina la fricción cognitiva y permite al usuario alcanzar su objetivo rápidamente (registrar y saldar cuentas). Se han integrado atajos de teclado (como `Ctrl+N` para nuevos gastos) y una calculadora en la pantalla de Inicio para evitar la navegación innecesaria.
+* **Accesibilidad:** La información crítica nunca recae únicamente en el color. Las deudas y créditos se diferencian mediante colores (verde/rojo), símbolos matemáticos explícitos (+ y -), y etiquetas de texto descriptivas ("Deudor" / "Acreedor").
+* **HCI (Interacción Persona-Ordenador):**
+  * *Visibilidad:* El estado del sistema es constante gracias a la barra de estado inferior que confirma que los datos están "sincronizados en local".
+  * *Prevención de errores (Restricción):* El uso de menús desplegables para seleccionar "Pagado por" y *checkboxes* para elegir a los deudores evita que el usuario introduzca datos incorrectos manualmente.
+---
 
 # 2.5 Pautas de aspecto: colores, fuentes, iconos, distribución
 
