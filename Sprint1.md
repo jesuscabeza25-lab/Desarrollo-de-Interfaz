@@ -1,4 +1,4 @@
-# PayClear — Documentación Técnica
+# PayClear - Documentación Técnica - SPRINT 1
 
 * **Módulo:** Desarrollo de Interfaces (DII)
 * **Equipo:** Jesús, José Luis, Guillermo
