@@ -279,8 +279,6 @@ Para organizar el trabajo del **Sprint 02** (del 15 al 30 de octubre de 2026) no
 
 ## 2.8.3. Diagrama de Gantt y sincronización con Kanban
 
-<img width="651" height="499" alt="Image" src="https://github.com/user-attachments/assets/2b775312-29e1-4372-b3b7-50a578ce4ea6" />
-
 * **Dependencias y revisión en equipo:** El trabajo se organizó con tareas en paralelo desde el 19 de octubre (`[2.1]`, `[2.3]`, `[2.4]` y `[2.5]`). Las dependencias directas son dos: las pautas de componentes visuales (`[2.6]`) necesitan tener definido el aspecto visual (`[2.5]`) y los mockups (`[2.3]`), y la *Sprint Review* depende de que todas las tarjetas anteriores estén cerradas. Antes de mover las tareas a *Terminado*, hicimos una revisión grupal que sirvió para pulir el punto `[2.4]` y alinear los textos con el prototipo final.
 * **Estado del tablero Kanban (GitHub Projects):** Hoy jueves 29 de octubre, las tarjetas `[2.1]` a `[2.8]` están ya en la columna *Terminado*. Solo sigue en curso la tarjeta conjunta `[Sprint Review] Presentación` para la defensa de mañana viernes 30 de octubre.
 
