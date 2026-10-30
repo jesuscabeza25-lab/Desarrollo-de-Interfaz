@@ -408,9 +408,6 @@ La maquetación organiza el espacio para conseguir tener una navegación intuiti
 
 ### **Fuentes:**
 
-* Adobe. (s. f.). *Archivo : Qué es un archivo *. Adobe Creative Cloud. [https://www.adobe.com/es/creativecloud/file-types/image/vector/-file.html](https://www.adobe.com/es/creativecloud/file-types/image/vector/-file.html)
-
-
 * Calou, J. (s. f.). *Guía: Cómo Animar con *. Toptal. [https://www.toptal.com/developers/front-end/guia-como-animar-con-](https://www.toptal.com/developers/front-end/guia-como-animar-con-)
 
  
