@@ -408,7 +408,7 @@ La maquetación organiza el espacio para conseguir tener una navegación intuiti
 
 ### **Fuentes:**
 
-* Calou, J. (s. f.). *Guía: Cómo Animar con *. Toptal. [https://www.toptal.com/developers/front-end/guia-como-animar-con-](https://www.toptal.com/developers/front-end/guia-como-animar-con-)
+* Calou, J. (s. f.). *Guía: Cómo Animar con *. Toptal. [https://www.toptal.com/developers/front-end/guia-como-animar-con-SVG](https://www.toptal.com/developers/front-end/guia-como-animar-con-svg)
 
  
 * Jimdo. (2015, 10 de febrero). Cómo elegir los colores para tu página web. Jimdo Blog. https://www.jimdo.com/es/blog/colores-paginas-web/
