@@ -511,7 +511,7 @@ Para organizar el trabajo del **Sprint 02** (del 15 al 30 de octubre de 2026) no
 
 1. **Fase 1 - Clases teóricas, reparto y arranque (15 oct - 21 oct):** Se repartieron las tarjetas en GitHub Projects. A partir del día 19, Jesús empezó con usabilidad y accesibilidad (`[2.1]`) y con el diseño estructural de menús, ventanas y atajos (`[2.4]`); Guillermo comenzó las pautas de aspecto (`[2.5]`); y José Luis empezo con los wireframes y mockups (`[2.3]`).
 2. **Fase 2 - Aspecto visual y arranque de auditoría y secuencia (22 oct - 27 oct):** Guillermo cerró las pautas de aspecto el día 26, con la paleta accesible WCAG 2.1, las tipografías y los logos en SVG (`[2.5]`). Ese mismo día empezó la secuencia de control (`[2.7]`) y Jesús arrancó las métricas y herramientas de auditoría (`[2.2]`). Mientras tanto, Jesús y José Luis siguieron avanzando con `[2.1]`, `[2.4]` y `[2.3]`.
-3. **Fase 3 - Cierre de secuencia y usabilidad (28 oct):** Guillermo terminó el diagrama de flujo de vistas (de `P1` a `P3.x`) y la documentación del punto `[2.7]`[cite: 2]. Jesús dejó cerrado el `[2.1]`.
+3. **Fase 3 - Cierre de secuencia y usabilidad (28 oct):** Guillermo terminó el diagrama de flujo de vistas (de `P1` a `P3.x`) y la documentación del punto `[2.7]`. Jesús dejó cerrado el `[2.1]`.
 4. **Fase 4 - Revisión cruzada, componentes y cierre del sprint (29 oct - 30 oct):** Revisión en grupo de lo redactado. Jesús aplicó las correcciones acordadas y cerró `[2.2]` y `[2.4]`; José Luis terminó de documentar los mockups (`[2.3]`) y completó las pautas de componentes visuales (`[2.6]`); y Guillermo cerró este cronograma (`[2.8]`). Entre el 29 y el 30 dejamos lista la presentación para la *Sprint Review*.
 
 ---
