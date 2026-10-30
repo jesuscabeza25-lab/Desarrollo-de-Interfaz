@@ -4,6 +4,15 @@
 * **Equipo:** Jesús, José Luis, Guillermo
 * **Fecha de entrega Sprint 2:** 30/10/2026
 
+### Coevaluación
+| Integrante | Nota (%) |
+| :--- | :--- |
+| Guillermo Eugui | 100% |
+| Jesús Cabeza | 100% | 
+| JoseLuís Segura | 80% |
+
+---
+
 ### **2.1. Usabilidad y accesibilidad: características, pautas y estándares**
 
 #### **2.1.1. Atributos de usabilidad y formas de medirlo**
