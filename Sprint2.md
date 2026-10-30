@@ -9,7 +9,7 @@
 | :--- | :--- |
 | Guillermo Eugui | 100% |
 | Jesús Cabeza | 100% | 
-| JoseLuís Segura | 80% |
+| JoseLuís Segura | 100% |
 
 ---
 
